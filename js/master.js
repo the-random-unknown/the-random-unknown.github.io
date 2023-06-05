@@ -7,6 +7,6 @@ function mobileMenuAction() {
 	
 	else {
 		action.style.display = "flex";
+		// action.style.transform = "rotateY(180deg)"
 	}
 }
-
