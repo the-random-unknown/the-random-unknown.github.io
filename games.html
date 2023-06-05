@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/navigation.css">
+	<link rel="stylesheet" href="css/response.css">
+	<script src="js/master.js"></script>
+	<title>Portfolio - Lednicky</title>
+</head>
+
+<body>
+	<!-- desktop navigaton -->
+	<div class="desktop">
+
+		<!-- left side navbar -->
+		<nav class="navbar_left sidebar">
+			<span><a href="#article-1">Project Titan</a></span>
+			<span><a href="#article-2">Stellar Odyssey</a></span>
+			<span><a href="#article-3">Elemental Tactics</a></span>
+			<span><a href="#article-4">Ostatní projekty</a></span>
+		</nav>
+		
+		<!-- right side navbar -->
+		<nav class="navbar_right sidebar">
+			<span><a href="https://creativehill.cz/">CHC</a></span>
+			<span><a href="mailto:22163tl@creativehill.cz">E-mail</a></span>
+			<span><a href="https://github.com/the-random-unknown">GitHub</a></span>
+			<span><a href="https://www.reddit.com/user/the-unknown-noname">Reddit</a></span>
+		</nav>
+		
+		<!-- top navbar -->
+		<nav class="navbar_top">
+			<div><span><u><a class="logo" href="index.html">LEDNICKÝ</a></u></span></div>
+	
+			<div>
+				<span><a href="index.html">Domů</a></span>
+				<span><a href="games.html">Moje Hry</a></span>
+				<span><a href="web-sites.html">Moje Weby</a></span>
+				<span><a href="media.html">Moje Fotky</a></span>
+			</div>
+		</nav>
+	</div>
+
+	<!-- mobile naviagtion -->
+	<div class="mobile">
+		<nav class="m_nav_menu" id="mobileMenuDiv">
+
+			<!-- top navbar -->
+			<span><a href="index.html">Domů</a></span>
+			<span><a href="games.html">Moje Hry</a></span>
+			<span><a href="web-sites.html">Moje Weby</a></span>
+			<span><a href="media.html">Moje Fotky</a></span>
+
+			<br>
+
+			<!-- bottom navbar -->
+			<span><a href="https://creativehill.cz/">CHC</a></span>
+			<span><a href="mailto:22163tl@creativehill.cz">E-mail</a></span>
+			<span><a href="https://github.com/the-random-unknown">GitHub</a></span>
+			<span><a href="https://www.reddit.com/user/the-unknown-noname">Reddit</a></span>
+		</nav>
+
+		<nav class="m_navbar_top">
+			<span><u><a class="logo" href="">LEDNICKÝ</a></u></span>
+			<span><a href="javascript:void(0);" onclick="mobileMenuAction()">&#10094;</a></span>
+		</nav>
+	</div>
+
+	<!-- main content -->
+	<main>
+		<header>
+			<h1>Moje <span class="logo">Hry</span></h1>
+			<div class="arrow"><a href="#article-1">&#8964;</a></div>
+		</header>
+
+		<article id="article-1">
+			<h2>The Project Titan</h2>
+			<h3>Gameplay</h3>
+			<p>Hra The Projekt Titan je napínavá rogue-like střílečká s pohledem shora. V této akční hře si převezmete kontrolu nad mocným titánem, vybaveným omezeným zdrojem energie, která slouží jak jako vaše životy, tak jako munice. Vašeho titána si také můžete postupně vylepšovat za body získané ze zničených nepřátel. Hra je poměrně chytlavá leč némá žadné možnost online multiplayeru, ale i přes absenci multiplayeru je zde určitý způsob jakým jsou hráči propojeni. Tím jsou <a href="https://kokos.wz.cz/leaderboards.php">Leaderboardy</a> na stránce <a href="https://kokos.wz.cz/index.php">kokos.wz.cz</a>. TPT byl původně vyvynut pro potřeby mých přímacích zkoušek na Creative Hill Colage ve Zlíně. Hra také původně měla obsahovat kampaň, na tu však nezbyl čas a proto nebyla do hry implementována.</p>
+
+			<h3>Mechnika energie</h3>
+			<p>Energie vašeho titána je klíčovým zdrojem, sloužícím jako životní síla a munice pro ničivé zbraně. Každá vystřelená rána spotřebovává energii, což vás staví do neustálého boje o vyvážení útoku a obrany. Budete muset strategicky spravovat zásoby energie, abyste mohli uvolnit silné útoky a zároveň zajistili své vlastní přežití.</p>
+
+			<h3>Technologie</h3>
+			<p>Hra je celá dělána v herním enginu GameMaker Studio 1.2. Pracovat s tímto enginem jsem se naučil už jako malý, takže pro mne nebylo příliš obtížné poměrně rychle vytvořit hru bez toho abych musel cokoliv hledat ne se učit.</p>
+
+			<h3>Propojení s webem</h3>
+			<p>Hra je propojená s webovou stránkou <a href="https://kokos.wz.cz/index.php">kokos.wz.cz</a>, která slouží jako jeden z možných způsobů, jak si hru zahrát a také, jak si porovnávat score v <a href="https://kokos.wz.cz/leaderboards.php">Leaderboardech</a>. Na stránce si jednoduše vytvoříte účet a pustíte se do hry. Jakmile hra skončí se score automaticky uploadne na <a href="https://kokos.wz.cz/leaderboards.php">Leaderboardy</a> pod vaší přezdívkou.</p>
+		</article>
+
+		<article id="article-2">
+			<h2>Stellar Odyssey</h2>
+			<h3>Gameplay</h3>
+			<p>Ve Stellar Odyssey se hráč vydává na nebezpečnou cestu vesmírem jako kapitán malého vesmírného plavidla. Toto dobrodružství, inspirované mou oblíbenou hrou Faster Than Light (FTL), kombinuje strategické rozhodování, intenzivní bitvy a to vše v náhodně generovaném vesmíru.</p>
+
+			<h3>Technologie</h3>
+			<p>Pro vývoj Stellar Odyssey jsem využil GameMaker Studio 1.2 stejně jako pro The Project Titan. Generovaný vesmír má zajišťovat, že žádný průchod hrou nebude stejný. Každý skok do nového sektoru přináší nová nebezpečí, jako jsou nepřátelští mimozemské, asteroidní pole nebo vraky lodí plné zdrojů potřebných pro hráčovo přežití. Musíte pečlivě spravovat své omezené zdroje, jako je množství paliva, ocely, jídla, pití, energie nebo životů jednotlivích částí lodi. Hlavní rozdíl od FTL měl být ve více survivalové povaze hry. FTL je spíše hrou žánru rogue-like, každá hra tvá nanejvíš pár hodin, zatímco jedná hra Stellar Odyssey může trvat desítky hodin. Jedním z důvodů proč hra také byla delší je že souboje nejsou real-timové, na každý tah máte kolik chcete času takže vás nic nenutí se co nejrychleji rozhodovat. To je ovšem balancováno větší obtížností soubojů.</p>
+
+			<h3>Současný stav</h3>
+			<p>Stellar Odyssey bylo vyvíjeno pro potřeby mých příjamcích zkoušek, stejně jako The Project Titan, ale na rozdíl od TPT jsem Stellar Odyssey nedotáhl do stavu aby se dal opravdu plnohodnotně hrát, to bylo především kvůly mím limitacím mých zkušeností v programování, leč nápad stále přetrvává a kdo ví - třeba se jednou dočkáme Stellar Odyssey v přepracované verzi která už bude obsahovat opravdu vše co má.</p>
+		</article>
+
+		<article id="article-3">
+			<h2>Elemental Tactics</h2>
+			<h3>Gameplay</h3>
+			<p>Hra Elemental Tactics je poutavá počítačová karetní hra, která je podobná hře Hearthstone, ale představuje jedinečný herní mechanismus zaměřený na otáčení karet ve čtyřech různých směrech, abyste vytvořily různě silné kombinace karet.</p>
+
+			<h3>Otáčení karet</h3>
+			<p>V této strategické karetní bitvě sestavíte balíček různorodých elementálních karet, z nichž každá představuje různé bytosti, kouzla a očarování. Vaším cílem je strategicky otáčet tyto karty, abyste aktivovali jejich schopnosti a vytvořili ničivé kombinace.</p>
+
+			<h3>Tachnologie</h3>
+			<p>Tato hra byla, stejně jako obě předchozí, vytvořena pomocí enginu GameMaker Studio 1.2. Celý grafický kabátek je stylizován do pixelartové grafiky. Hra se odehrává na stole který slouží jako pozadí pro karty které hráči postupně vykládají do 4 linií (2 u hrače a 2 u nepřítele). Každá karta má čtyři směry kterýmy může ukazovat. Podle toho kterým směrem je otočena poskituje vedlejší kartě bonus k ůtoku, větší štít, redukci poškození či jiný efekt. Spojením síly několika karet může hráč docílit velmy silné kobinace, ale musí si dávat pozor aby to stejné neudělal i nepřítel a tím vám nepřekazil jeho plány.</p> 
+
+			<h3>Současný stav</h3>
+			<p>Bohužel stejně jako Stellar Odyssey, Elemental Tactics nikdy nebylo dokončeno. To bylo hlavně z důvodu složitosti systému kombinace jednotlivých karet. Velký počet kombinací byl pro neskušeného programátora, jako jsem byl já velký problém. Avšak stejně jako u Stellar Odyssey nápad stále přetrvává a mé zkuženosti s programováním se poměrně hodně zlopšily, tak třeba jednoho dne.</p>
+		</article>
+
+		<article id="article-4">
+			<h2>Ostatní projekty</h2>
+			<h3>Ztraceno</h3>
+			<p>Bohužel (možná naštěstí) většina z mých starých projektu je ztracena někde mezy stovkamy souborů na starém disku který jsem již dlouho neotevřel a proto je zde neuvádím.</p>
+		</article>
+	</main>
+	
+	<footer>
+		<h4>Tadeáš František Lednický</h4>
+		<p>unknown@nodomain.4a*</p>
+		<br>
+		<p class="supplement">Tento e-mail ve skutečnosti neexistuje, je to pouze takový můj druhý podpis.</p>
+	</footer>
+</body>
+</html>

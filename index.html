@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/navigation.css">
+	<link rel="stylesheet" href="css/response.css">
+	<script src="js/master.js"></script>
+	<title>Portfolio - Lednicky</title>
+</head>
+
+<body>
+	<!-- desktop navigaton -->
+	<div class="desktop">
+
+		<!-- left side navbar -->
+		<nav class="navbar_left sidebar">
+			<span><a href="#article-1">O mně</a></span>
+			<span><a href="#article-2">Hry</a></span>
+			<span><a href="#article-3">Programování</a></span>
+			<span><a href="#article-4">Operační Systémy</a></span>
+		</nav>
+		
+		<!-- right side navbar -->
+		<nav class="navbar_right sidebar">
+			<span><a href="https://creativehill.cz/">CHC</a></span>
+			<span><a href="mailto:22163tl@creativehill.cz">E-mail</a></span>
+			<span><a href="https://github.com/the-random-unknown">GitHub</a></span>
+			<span><a href="https://www.reddit.com/user/the-unknown-noname">Reddit</a></span>
+		</nav>
+		
+		<!-- top navbar -->
+		<nav class="navbar_top">
+			<div><span><u><a class="logo" href="index.html">LEDNICKÝ</a></u></span></div>
+	
+			<div>
+				<span><a href="index.html">Domů</a></span>
+				<span><a href="games.html">Moje Hry</a></span>
+				<span><a href="web-sites.html">Moje Weby</a></span>
+				<span><a href="media.html">Moje Fotky</a></span>
+			</div>
+		</nav>
+	</div>
+
+	<!-- mobile naviagtion -->
+	<div class="mobile">
+		<nav class="m_nav_menu" id="mobileMenuDiv">
+
+			<!-- top navbar -->
+			<span><a href="index.html">Domů</a></span>
+			<span><a href="games.html">Moje Hry</a></span>
+			<span><a href="web-sites.html">Moje Weby</a></span>
+			<span><a href="media.html">Moje Fotky</a></span>
+
+			<br>
+
+			<!-- bottom navbar -->
+			<span><a href="https://creativehill.cz/">CHC</a></span>
+			<span><a href="mailto:22163tl@creativehill.cz">E-mail</a></span>
+			<span><a href="https://github.com/the-random-unknown">GitHub</a></span>
+			<span><a href="https://www.reddit.com/user/the-unknown-noname">Reddit</a></span>
+		</nav>
+
+		<nav class="m_navbar_top">
+			<span><u><a class="logo" href="">LEDNICKÝ</a></u></span>
+			<span><a href="javascript:void(0);" onclick="mobileMenuAction()">&#10094;</a></span>
+		</nav>
+	</div>
+
+	<!-- main content -->
+	<main>
+		<header>
+			<h1>Tadeáš František <span class="logo">Lednický</span></h1>
+			<div class="arrow"><a href="#article-1">&#8964;</a></div>
+		</header>
+
+		<article id="article-1">
+			<h2>Kdo jsem</h2>
+			<h3>O mě</h3>
+			<p>Jsem 16letý student IT se zaměřením na vývoj počítačových her. Už jako malého mě zajímaly videohry a technologie, které je oživují. Společné s mojí touhou proskoumávat jak věci fungují na pozadí mě toto namotivaovalo k tomu, abych začal se hlouběji zajímato o to jak vlastně počítače obecně fungují. Zajména mě oslovily operační systémy.</p>
+
+			<h3>Hry</h3>
+			<p>O programování počítačových her se zajímám už dlouho. Už jako malí jsem dělal jdnoduché hry pomocí Game Maker Studiu, což je jednoduchý engine, nevyžadující znalost jakéhokoliv programovacího jazyka. Stačilo pouze z jdnoduchých bloků skládat logiky hry. Avšak Game Maker Studio mi zanedlouho přestalo stačit, protože nemělo moc opkročilích funkcí. A tak jsem začal hledat jinou cestu jak vyvíjet hry bez toho, abych uměl programovat. Původně jsem totiž nechtěl být programátor, ale level a gameplay designer. Postupem času jsem zjistil že bez programovaní se moc daleko nedostatu, a že jestliže si to sáim nenaprogramuji tak to za mě nikdo neudělá. A tak jsem se začal učit programovat.</p>
+
+			<h3>Programování</h3>
+			<p>S programováním jsem měl poměrně štěstí, protoře můj otec je taky "programátor". Je sice pravda že programuje v prostředí SAP takže mi s mým programováním pomoci nemohl, ale dal my několik rad jak se programování nejlépe učit. Ta nejduležitější rada, kteru jsem ze začatku podcenil a až teď si uvědomuji její hodnotu, byla, že nejlepší způsob jak se naučit programovat je knížka. Jak už jsem zmíníl, tuto radu jsem ze začátku nebral moc vážně. První programovací jazyk který jsem zkusyl byl Python. Učil jsem se ho pomocí českého tutoriálu na youtube, a když se na to podívám zpětně - nenaučil jsem se v podstatě nic. Ano, věděl jsem co je to proměnná a jak se vypisuje do konzole, ale to o tom že python je interpretový jazyk nebo to jak fungují datastruktury, o tom jsem něvěděl nic. Nějaký čas uplynul a já se přesumul od pythonu k C#. To už bylo trochu lepší. Začal jsem sledovat anglické tutoriály a trochu pochopil jak vlastně programování funguje, ale stále jsem nerozuměl například oběktově orientovanému programování.</p>
+
+			<h3>C++</h3>
+			<p>Se C# jsem ztrávil hodně času, ale i tak jsem pořád nebyl moc spokojený s míma schopnostma v programovaní a také jsem postupně začal zjišťovat že krom Unity enginu se C# v herním vývoji moc nepoužívá (dnes tomu už je jinak, sousta enginu přidaly podporu pro C# např. CryEngine, Godot, Unigine). Proto jsem se rozhodl že se nučím C++. Tentokrát jsem však věděl do čeho jdu. Rozhodl jsem se že pujsu hezky postupně a systematicky a nejprve se naučím jazyk C a poté to rozšířím o znalost C++. Už jsem měl takové tušení že z YouTubu se C asy moc nenaučím ale stejně jsem to zkusil. A jak se dalo čakat - nenašel jsem absolutně nic co by mě opravdu naučilo nejen programovat, ale i podstatné věci jako například statické a dynamické knihovny, příkazy kompileru nebo jak správně používat pointery a pracovat s pamětí. A tak jsem se rozhodl že poslechnu otcovu radu a vezmu si knížku. Naštěstí můj otec má poměrné solidní zásobu knížek o programování z čehoš byli 3 o jazice C. Přiznám se že muj výběr byl poněkud lehkomyslný poněvaž jsem vzal tu nejtenší, malinkatou knížečku s názvem "Učebnice jazyka C". Moje vysvětlení bylo že se nechci C učit do hloubky ale chci ho jenom jako základ pro C++, ale i přes malinkatou velikost my dala vše co jsem chtěl. Nenaučila mne jak psát muj kǒd tím naprosto nejefektivnějším způsem, ale to jsem stejně nepotřeboval, to je něco co se můžu naučit sám. To co my dala je všechno to know how kolem programovaní a programovacích jazyků obecně, nejen o C. Naučila mě jak fungují kompilery, že existují interpretery a taky jak fungu jazyky využívajících obou dvou technik, jako je například Java nebo muj oblíbený C#, jak funguje assembly language, jak vypadá instrukní sada pro procesor, jak pracuje pamět nebo jak funguje runtime support atd. Ta jedna malinká knížkečka z roku 1998 mě pravděpodobně naučilavíc než jsem se sám naučil za těch 7 let co jsem se zajímal o programování.</p>
+
+			<h3>Herní Enginy</h3>
+			<p>Během toho jak jsem se zdokonaloval v programování jsem zjistil, že čím dál tim víc rozumím tomu jak vlastně většina technologií pro tvorbu počítačovích her funguje. A tak se my v hlavě zrodila taková myšlenka - co kdybych si zkusil vyrobyt vlastní engine. Je pravda že tu teď sedím o pár let později a z enginu pořád nemám nic, ale můje chápání o tom jak herní enginy fungují na pozadí se poměrně hodně rozšírilo.</p>
+
+			<h3>Linux</h3>
+			<p>Jsem si vědom že tohle je trochu kontroverzní, ale je to tak. Podlehl jsem možnostem jež mi UN*X systémy nabýzely. Btw krom linuxu taky mám poměrně rád FreeBSD a rád bych si někdy zkusil procovat se Solarisem. Hystorie toho jak jsem se k Linuxu (či GNU/Linuxu) dostal, ale to je na někdy jindy.</p>
+		</article>
+
+		<article id="article-2">
+			<h2>Moje Práce</h2>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum exercitationem optio corporis tempora, mollitia eveniet magnam quidem deleniti voluptatem inventore vel numquam ab minus. Deserunt accusantium aut odit laudantium officia.</p>
+		</article>
+
+		<article id="article-3">
+			<h2>Num3</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, sed. Sint atque, amet aut excepturi asperiores magnam debitis velit fugiat mollitia. Voluptatum, pariatur! Corporis nobis consequatur in quo dolor placeat.</p>
+		</article>
+
+		<article id="article-4">
+			<h2>Num4</h2>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat blanditiis explicabo quisquam dignissimos sequi, dolorem error minima quas iusto maxime rem dolorum numquam autem non necessitatibus consequatur, quidem consequuntur saepe?</p>
+		</article>
+	</main>
+	
+	<footer>
+		<h4>Tadeáš František Lednický</h4>
+		<p>unknown@nodomain.4a*</p>
+		<br>
+		<p class="supplement">Tento e-mail ve skutečnosti neexistuje, je to pouze takový můj druhý podpis.</p>
+	</footer>
+</body>
+</html>

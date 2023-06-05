@@ -1,0 +1,83 @@
+/* global navigation */
+nav .logo {
+	padding: 0.8vh 1.6vh;
+	font-weight: bold;
+	background-color: var(--main-color);
+	transition-duration: var(--default-duration);
+}
+
+nav .logo:hover {background-color: #000000; color: var(--main-color);}
+
+/* desktop navigation */
+nav {position: fixed; z-index: 1;}
+
+/* top navbar */
+.navbar_top {
+	width: 100%;
+	padding: 2.4vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: var(--main-color);
+}
+
+.navbar_top a {color: #000000;}
+.navbar_top span {margin: 0 2.6vh; border: 0px solid #000000; transition-duration: 120ms;}
+.navbar_top span:hover {border-bottom: 4px solid #000000;}
+
+/* side navbars */
+.sidebar {
+	height: 100vh;
+	width: 16%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.sidebar span {
+	padding: 2.8vh;
+	transition-duration: var(--default-duration);
+}
+
+.sidebar a {color: #ffffff;}
+
+/* left navbar */
+.navbar_left {text-align: right;}
+.navbar_left span {border-right: 3px solid var(--main-color);}
+.navbar_left span:hover {border-right: 16px solid var(--main-color);}
+
+/* right navbar */
+.navbar_right {margin-left: 84%;}
+.navbar_right span {border-left: 3px solid var(--main-color);}
+.navbar_right span:hover {border-left: 16px solid var(--main-color);}
+
+/* mobile navigation */
+.m_navbar_top {
+	width: 100%;
+	padding: 2.8vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: var(--main-color);
+}
+
+.m_navbar_top a {color: #000000;}
+
+.m_nav_menu {
+	position: fixed;
+	height: 100vh;
+	width: 100%;
+	padding: 0% 16%;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	transition-duration: var(--default-duration);
+	background-color: #080808cc;
+}
+
+.m_nav_menu span {padding: 2vh; border-left: 3px solid var(--main-color);}
+
+
+
+
+
