@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+
+* {box-sizing: border-box; margin: 0; padding: 0;}
+html {scroll-behavior: smooth;}
+body {background-color: #000000; font-size: 140%; font-family: 'Poppins', sans-serif;}
+::selection {background-color: var(--main-color); color: #000000;}
+
+/* scrollbar */
+::-webkit-scrollbar {width: 12px;}
+::-webkit-scrollbar-track {background: #242424;}
+::-webkit-scrollbar-thumb {background: #646464;}
+::-webkit-scrollbar-thumb:hover {background: #484848;}
+
+:root {
+	--main-color: #aaff20;
+	--default-duration: 340ms;
+}
+
+a {text-decoration: none; color: #ffffff;}
+
+
+header {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+header .logo {
+	padding: 0.8% 2%;
+	background-color: var(--main-color);
+	color: #000000;
+}
+
+main {
+	line-height: 1.6;
+	margin: 0 24%;
+	color: #ffffff;
+}
+
+main a {color: var(--main-color);}
+main img {margin-top: 4vh; width: 100%; border-radius: 24px;}
+
+.arrow {
+	position: absolute;
+	top: 80vh; left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 180%;
+    animation-name: arrow-animation;
+	animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+}
+
+footer {
+	margin-top: 8vh;
+	padding: 4vh 0;
+	text-align: center;
+	background-color: var(--main-color);
+	color: #000000;
+}
+
+/* headers */
+h1 {font-size: 260%; transition-duration: var(--default-duration)}
+h2 {text-align: center; padding-top: 12vh; margin-top: 12vh; border-bottom: 6px solid var(--main-color); font-size: 220%;}
+h3 {margin: 8vh 0 2vh; font-size: 140%;}
+
+.slide-div {
+	position: fixed;
+	z-index: 2;
+	transform: translateY(-100vh);
+	height: 100vh;
+	width: 100%;
+	animation-name: slide-animation;
+	animation-duration: 800ms;
+	background-color: var(--main-color);
+}
+
+.supplement {font-size: 60%;}
+
+@keyframes arrow-animation {
+    0%   {transform: translate(-50%, 2vh);}
+    50% {transform: translate(-50%, -2vh);}
+    100%   {transform: translate(-50%, 2vh);}
+}
+
+@keyframes slide-animation {
+    0%   {transform: translateY(8vh);}
+    100%   {transform: translateY(100vh);}
+}
+

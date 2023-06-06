@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/navigation.css">
+	<link rel="stylesheet" href="css/response.css">
+	<script src="js/master.js"></script>
+	<title>Portfolio - Lednicky</title>
+</head>
+
+<body>
+	<!-- div for slide animation -->
+	<div class="slide-div"></div>
+	
+	<!-- desktop navigaton -->
+	<div class="desktop">
+
+		<!-- left side navbar -->
+		<nav class="navbar_left sidebar">
+			<span><a href="#article-1">kokos.wz.cz</a></span>
+			<span><a href="#article-2">Hudba</a></span>
+			<span><a href="#article-3">Výstava Nevim</a></span>
+			<span><a href="#article-4">Linux or GNU/Linux</a></span>
+		</nav>
+		
+		<!-- right side navbar -->
+		<nav class="navbar_right sidebar">
+			<span><a href="https://creativehill.cz/" target="_blank">CHC</a></span>
+			<span><a href="mailto:22163tl@creativehill.cz">E-mail</a></span>
+			<span><a href="https://github.com/the-random-unknown" target="_blank">GitHub</a></span>
+			<span><a href="https://www.reddit.com/user/the-unknown-noname" target="_blank">Reddit</a></span>
+		</nav>
+		
+		<!-- top navbar -->
+		<nav class="navbar_top">
+			<div><span><u><a class="logo" href="index.html">LEDNICKÝ</a></u></span></div>
+	
+			<div>
+				<span><a href="index.html">Domů</a></span>
+				<span><a href="games.html">Videohry</a></span>
+				<span><a href="web-sites.html">Webovky</a></span>
+				<span><a href="media.html">Fotografie</a></span>
+			</div>
+		</nav>
+	</div>
+
+	<!-- mobile naviagtion -->
+	<div class="mobile">
+		<nav class="m_nav_menu" id="mobileMenuDiv">
+
+			<!-- top navbar -->
+			<span><a href="index.html">Domů</a></span>
+			<span><a href="games.html">Videohry</a></span>
+			<span><a href="web-sites.html">Webovky</a></span>
+			<span><a href="media.html">Fotografie</a></span>
+
+			<br>
+
+			<!-- bottom navbar -->
+			<span><a href="https://creativehill.cz/" target="_blank">CHC</a></span>
+			<span><a href="mailto:22163tl@creativehill.cz">E-mail</a></span>
+			<span><a href="https://github.com/the-random-unknown" target="_blank">GitHub</a></span>
+			<span><a href="https://www.reddit.com/user/the-unknown-noname" target="_blank">Reddit</a></span>
+		</nav>
+
+		<nav class="m_navbar_top">
+			<span><u><a class="logo" href="">LEDNICKÝ</a></u></span>
+			<span><a href="javascript:void(0);" onclick="mobileMenuAction()">&#10094;</a></span>
+		</nav>
+	</div>
+
+	<!-- main content -->
+	<main>
+		<header>
+			<h1><span class="logo">Webové</span> stránky</h1>
+			<div class="arrow"><a href="#article-1">&#8964;</a></div>
+		</header>
+
+		<article id="article-1">
+			<h2>kokos.wz.cz</h2>
+			<img src="./src/img/web_sites/Screenshot_20230606_083138.png" alt="">
+
+			<h3>Proč?</h3>
+			<p>Stránka <a href="https://kokos.wz.cz/index.php">kokos.wz.cz</a> byla, stejně jako Project Titan, vytvořena pro příjmací zkoušky na Creative Hill Collage. Byl to totiž skvělí způsob jak propojit dva projekty do hromady - webovou stránku a moje hry. Záměrem bylo vytvořit stránku, na keteré si může kdokoli zahrát moje hry. Pro vylepšení stránky jsem také přidal možnost vytvoření účtu a porovnávaní si výsledků na <a href="https://kokos.wz.cz/leaderboards.php">Leaderboardech</a></p>
+
+			<h3>Struktura</h3>
+			<p>Stránka má landing page kde si může hráč vybrat z několika karet, co na stránce chce dělat, to jest - hrát hry, dozvědět se něco o projektu a stránce, nebo si vytvořit účet. Dále se na každé stránce nachází navigační bar, který slouží k okamžitému přesování skrz web. V navbaru se nachazejí možnosti: Home - domovská stránka / landingpage, About-Contact - o projektu a e-mail pro kontakt, Games - seznam her hratelných na webu, Leaderboards - výsledky ze hry Project Titan a Project Titan 2.0, Sign In / Sign Out - slouží pro přihlašování a odhlašování z účtu.</p>
+
+			<h3>Leaderboardy</h3>
+			<p>Jedná se o propojení hry Project Titan a Project Titan 2.0 s webem za účelem dát možnost porovnat si svoje score s ostatnímy hráči. Score je vázáno na váš účet, keterý je v tabulce zobrazen pod vaším nicknamem (přezdívkou). Score se unploadne automaticky jakmyle ve hře zemřete. Po smrti budete přesměrováni právě na stránku s leaderboardy kde můžete okamžitě vydět vaší pozici.</p>
+		</article>
+
+		<article id="article-2">
+			<h2>Hudba (CHC)</h2>
+			<img src="./src/img/web_sites/Screenshot_20230605_185029.png" alt="">
+
+			<h3>Proč</h3>
+			<p>Tato stránka vzikla během prvního měsíce na škole Crative Hill Collage. Mělo se jednat o jednoduchou stránku, abychom ukázaly kolik toho umíme, aby vyučující měl představu o tom v jakém rozmezí zkušeností se zde pohybujeme. Zadání znělo: Vytvořte stránku se dvěma/třemi hudebními kapelami (nebo zpěváci/zpěvačky), vložte informace o umělci, obrázek, číslovaný a nečíslovaný seznam, odkazy na videa. Stránku včetně odkazů nastylujte.</p>
+
+			<h3>Struktura a design</h3>
+			<p>Stránka je rozdělena na tři části. Každá pro jednoho hudebníka. Designem jsem se snažil být jednoduchý ale přitom zajímavý. Využil jsem na oko příjemné barevné kombinace a přechody. Jinak stránka nenabízí žádný jiný zajímavý element který by podle mého stál za zmínku.</p>
+		</article>
+
+		<article id="article-3">
+			<h2>Výstava Nevim (CHC)</h2>
+			<img src="./src/img/web_sites/Screenshot_20230605_185249.png" alt="">
+
+			<h3>Proč?</h3>
+			<p>Výstava Nevim byla další stránkou vyvořenou v předmětu Programování WWW na škole CHC. Zadaním bylo vyvořit webovou stránku jako pozvánku na virtuální výstvu pořádanou na naší škole.</p>
+
+			<h3>Struktura a design</h3>
+			<p>Zde jsem zvolil jemější paletu barev, aby stránka více odpovídala tématu o kterém pojednává. Stránka je opět one-page design s jenotlivými sekcemi seřazenými postupně za sebou. V navigačním menu se nacházejí jednoduché odkazy na jednotlivé sekce na webu. První sekce obsahuje jednoduchý program ja by událost měla probíhat, druhá sekce obsahuje co bude za možnosti k občerstvení a třetí sekce je fotogalerie s fotkama jdnotlivých exponátů.</p>
+		</article>
+		
+		<article id="article-4">
+			<h2>Linux or GNU/Linux (CHC)</h2>
+			<img src="./src/img/web_sites/Screenshot_20230605_185138.png" alt="">
+
+			<h3>Proč?</h3>
+			<p>Opět CHC úkol. Tentokrát jsme měly více volné téma. Jediná podmínka zadání byla že musíme použít css float. Proto jsem si vybral svoje vlastní téma kterým bylo: Linux or GNU/Linux.</p>
+
+			<h3>Struktura a design</h3>
+			<p>Řekl bych že tentokrát jsem zvolil zlatou střední cestu. Stránka sice je velmy kontrastí, ale přitom není plná gradientů a spousty různých barevných kombinací. Jedniným opravdu barevným elementem je header, který má jako pozadí velké logo linuxové distribuce Debian na gradientovém pozadí. Dále už je stránka provedena pouze v černé a bílé barvě.</p>
+		</article>
+	</main>
+	
+	<footer>
+		<h4>Tadeáš František Lednický</h4>
+		<p>unknown@nodomain.4a*</p>
+		<br>
+		<p class="supplement">Tento e-mail ve skutečnosti neexistuje, je to pouze takový můj druhý podpis.</p>
+	</footer>
+</body>
+</html>
