@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/master.css">
+	<title>Stellar Odyssey</title>
+	<script defer src="./js/utils.js"></script>
+	<script defer src="./js/output.js"></script>
+	<script defer src="./js/idventory.js"></script>
+	<script defer src="./js/factions.js"></script>
+	<script defer src="./js/destination.js"></script>
+	<script defer src="./js/battle.js"></script>
+	<script defer src="./js/events.js"></script>
+	<script defer src="./js/main.js"></script>
+</head>
+
+<body onload="main();">
+	<video class="background" autoplay loop muted>
+		<source src="./src/background.mp4" type="video/mp4">
+	</video>
+	<main class="normal">
+		<div class="panel top">
+			<div id="clock"></div>
+			<div><b>Stellar Odyssey</b></div>
+			<div class="panel top_button" onclick="goToMenu()">Return to Menu</div>
+		</div>
+		<div class="panel static left">
+			<img class="panel statusContainer" src="./src/ships/dragonfire.png">
+			<div id="idventory" class="panel statusContainer"></div>
+			<div id="factions" class="panel statusContainer"></div>
+		</div>
+		<div class="panel static center">
+			<div id="output" class="outputContainer panel"></div>
+			<div id="battle" class="battleContainer panel">
+				<div>
+					<h2>You</h2>
+					<img class="panel" src="./src/ships/dragonfire.png">
+					<h2 id="battle_player"></h2>
+				</div>
+				<div>
+					<h3>vs</h3>
+				</div>
+				<div>
+					<h2>Enemy</h2>
+					<img class="panel" src="./src/ships/sparrow.png">
+					<h2 id="battle_enemy"></h2>
+				</div>
+			</div>
+			<div id="buttons" class="buttonsContainer"></div>
+		</div>
+		<div class="panel static right">
+			<img class="panel statusContainer" src="./src/planet.png">
+			<div id="destination" class="panel statusContainer"></div>
+		</div>
+	</main>
+	<div class="small panel">Your display is too small. If you're on your phone, try it on PC.</div>
+</body>
+
+
+</html>

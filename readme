@@ -1,0 +1,55 @@
+------ TODO ------
+udelat check na spavny input do set funkci
+dodeleat veci co mam v # sekci
+udelat prezentaci a dokumentaci
+----- HOTOVO -----
+vygeneroveat eventy pomoci chat-gpt
+dodelat funkcionalitu podle toho co bude potreba
+udelat soubojovy system
+------------------
+
+ship overview (left)
+main text content (center)
+destination - planet (right)
+
+
+3. destination
+2. idventory
+1. output
+
+<==== screens ====>
+story - prozkoumavat veci (planety, asteroidy, stanice), obchodovat, komunikovat atd.
+battle - proste souboj, cervena obrazovka a dramaticka hudba
+crafting - upgrady lodi a veci na lepsi prodavani
+
+<==== other ====>
+game = standard
+menu = custom html a javascript
+tutorial = mainTutorial() misto main()
+kazdy panel bude objekt
+dodelat responzivitu
+
+faction system -
+	political statuses
+	wars betwen
+	pirates
+
+<==== maybe ====>
+hudba
+music visualiser - youtube stream
+
+
+#########################
+random generace lodi na zacatku
+udelat mazani buttonu skrze mazani listu = vice radku a "cistci" kod
+spoustu debug printu = vice radku
+predelat idvetory print aby bily zalinovane = vice radku
+predelat vsechno html do javascriptu vcetne tutorial menu a ostatni
+
+nejake tezeni na platetach v prazdnych sektorech
+
+<==== Prezentace ====>
+vanila javascript
+layout stejný jako moje portfolio
+velmy jednoduchá expandibilita - přidávat elementy do ui nebo eventy
+dobra konstrukce = dobra expandibilita - napr. dodelat tutorial

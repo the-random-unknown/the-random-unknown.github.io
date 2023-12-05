@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/master.css">
+	<title>Stellar Odyssey</title>
+	<script defer src="./js/utils.js"></script>
+	<script defer src="./js/output.js"></script>
+	<script defer src="./js/idventory.js"></script>
+	<script defer src="./js/factions.js"></script>
+	<script defer src="./js/destination.js"></script>
+	<script defer src="./js/battle.js"></script>
+	<script defer src="./js/events.js"></script>
+	<script defer src="./js/game_over.js"></script>
+</head>
+
+<body onload="main()">
+	<video class="background" autoplay loop muted>
+		<source src="./src/background.mp4" type="video/mp4">
+	</video>
+	<main class="normal">
+		<div class="panel small_top">
+			<div><b>Stellar Odyssey</b></div>
+			<div id="clock"></div>
+		</div>
+		<div class="panel static center">
+			<div id="battle"></div>
+			<div id="output" class="outputContainer panel"></div>
+			<div id="buttons" class="buttonsContainer"></div>
+		</div>
+	</main>
+	<div class="small panel">Your display is too small. If you're on your phone, try it on PC.</div>
+</body>
+
+
+</html>

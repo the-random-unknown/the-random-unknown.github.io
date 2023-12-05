@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Space Mono', monospace;
+	font-size: 18px;
+	background-color: #000000;
+	color: #cccccc;
+	line-height: 1.6;
+}
+
+.background {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	object-fit: cover;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	filter: brightness(80%) contrast(120%) saturate(120%);
+}
+
+.panel {
+	padding: 12px;
+
+	backdrop-filter: grayscale(60%) brightness(40%);
+	background-color: #00000088;
+	border: 1px solid #aaaaaa42;
+
+	background:
+		linear-gradient(to right, #aaaaaa 1px, transparent 1px) 0 0,
+		linear-gradient(to right, #aaaaaa 1px, transparent 1px) 0 100%,
+		linear-gradient(to left, #aaaaaa 1px, transparent 1px) 100% 0,
+		linear-gradient(to left, #aaaaaa 1px, transparent 1px) 100% 100%,
+		linear-gradient(to bottom, #aaaaaa 1px, transparent 1px) 0 0,
+		linear-gradient(to bottom, #aaaaaa 1px, transparent 1px) 100% 0,
+		linear-gradient(to top, #aaaaaa 1px, transparent 1px) 0 100%,
+		linear-gradient(to top, #aaaaaa 1px, transparent 1px) 100% 100%;
+
+	background-repeat: no-repeat;
+	background-size: 12px 12px;
+}
+
+.panel.top {
+	position: absolute;
+	display: flex;
+	width: calc(100% - 64px);
+	height: calc(128px - 64px);
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+	margin: 32px;
+	padding: 0 32px;
+}
+
+.panel.small_top {
+	position: absolute;
+	display: flex;
+	width: 50%;
+	left: 25%;
+	height: calc(128px - 64px);
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+	margin: 32px 0;
+	padding: 0 32px;
+}
+
+.panel.static {
+	position: absolute;
+	top: 128px;
+	height: calc(100vh - 128px - 32px);
+	overflow-y: scroll;
+}
+
+.panel.static::-webkit-scrollbar {
+	width: 0px;
+}
+
+.panel.static.left {
+	width: calc(25% - 64px);
+	left: 32px;
+}
+
+.panel.static.center {
+	width: 50%;
+	left: 25%;
+}
+
+.panel.static.right {
+	width: calc(25% - 64px);
+	left: calc(75% + 32px);
+}
+
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #aaaaaa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #ffffff;
+}
+
+.outputContainer {
+	height: calc(100% - 64px - 12px);
+	overflow-y: scroll;
+}
+
+.buttonsContainer {
+	margin-top: 12px;
+	display: flex;
+	gap: 8px;
+	height: 64px;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.button {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #00000066;
+}
+
+.button:hover {
+	background-color: #ffffff32;
+}
+
+.top_button {
+	height: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #00000066;
+}
+
+.top_button:hover {
+	background-color: #ffffff32;
+}
+
+.statusContainer {
+	margin-bottom: 12px;
+	line-height: 1.8;
+}
+
+img {
+	width: 100%;
+	vertical-align: middle;
+}
+
+.battleContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	height: calc(100% - 64px - 12px);
+	overflow-y: scroll;
+	background-color: #aa000032;
+}
+
+h2 {
+	text-align: center;
+}
+
+@media only screen and ((max-width: 1000px) or (max-height: 640px)) {
+	.normal {
+		display: none;
+	}
+
+	.small {
+		display: flex;
+	}
+}
+
+@media only screen and (min-width: 1000px) and (min-height: 640px) {
+	.normal {
+		display: block;
+	}
+
+	.small {
+		display: none;
+	}
+}
+
+.small {
+	width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
