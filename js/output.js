@@ -14,7 +14,7 @@ class outputPanel {
 		this.clearButtons();
 
 		for (let i = 0; i < string.length; i++) {
-			await sleep(25);
+			await sleep(35);
 
 			if (string[i] == "<") {
 				let tag = "";
