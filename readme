@@ -1,1 +1,57 @@
-This project serves only as a final project for the first year of study at my school. Please do not redistribute any parts of the project.
+------ TODO ------
+dodeleat veci co mam v # sekci
+udelat prezentaci a dokumentaci
+----- HOTOVO -----
+udelat check na spavny input do set funkci
+vygeneroveat eventy pomoci chat-gpt
+dodelat funkcionalitu podle toho co bude potreba
+udelat soubojovy system
+------------------
+
+ship overview (left)
+main text content (center)
+destination - planet (right)
+
+
+3. destination
+2. inventory
+1. output
+
+<==== screens ====>
+story - prozkoumavat veci (planety, asteroidy, stanice), obchodovat, komunikovat atd.
+battle - proste souboj, cervena obrazovka a dramaticka hudba
+crafting - upgrady lodi a veci na lepsi prodavani
+
+<==== other ====>
+game = standard
+menu = custom html a javascript
+tutorial = mainTutorial() misto main()
+kazdy panel bude objekt
+dodelat responzivitu
+
+faction system -
+	political statuses
+	wars betwen
+	pirates
+
+<==== maybe ====>
+hudba
+music visualiser - youtube stream
+
+
+#########################
+predelat idvetory print aby byly zalinovane = vice radku
+udelat mazani buttonu skrze mazani listu = vice radku a "cistci" kod
+predelat vsechno html do javascriptu vcetne tutorial menu a ostatni
+
+random generace lodi na zacatku
+
+<==== Prezentace ====>
+vanila javascript
+layout stejný jako moje portfolio
+velmy jednoduchá expandibilita - přidávat elementy do ui nebo eventy
+dobra konstrukce = dobra expandibilita - napr. dodelat tutorial
+tutorial je interaktivni
+
+damage v battle systemu
+do event arraye se daji pridavat eventy dinamicky protoze nemaji fixni pozice - events.push()

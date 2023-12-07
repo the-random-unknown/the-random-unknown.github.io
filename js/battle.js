@@ -13,10 +13,14 @@ class Battle {
 	callback_function;
 	turn = 0;
 	player = document.getElementById("battle_player");
-	enemy = document.getElementById("battle_enemy")
+	enemy = document.getElementById("battle_enemy");
+	player_ship = document.getElementById("battle_image");
+	enemy_ship = document.getElementById("enemy_ship");
 
 	constructor(health, damage, callback) {
 		output.clearButtons();
+		this.enemy_ship.src = ships[(Math.floor(Math.random() * ships.length))];
+		this.player_ship.src = inventory.getShip();
 		output.setBattleVisible();
 		this.enemy_health_now = health;
 		this.enemy_health_original = health;
@@ -30,29 +34,34 @@ class Battle {
 		output.clearButtons();
 
 		if (this.player_mag > 0) {
-			const action_fire = output.createButton("Fire");
+			const action_fire = output.createButton("Útok");
 			action_fire.onclick = async function () { battle.enemyTurn(0); }
 		}
 
-		const action_reload = output.createButton("Reload");
+		const action_reload = output.createButton("Nabýt");
 		action_reload.onclick = async function () { battle.enemyTurn(1); }
 
-		const action_shield = output.createButton("Shield");
+		const action_shield = output.createButton("Obrana");
 		action_shield.onclick = async function () { battle.enemyTurn(2); }
 	}
 
 	enemyTurn(p_action) {
+		// logika pro souboj s neprately
 		if (this.turn < 1) this.resolve(p_action, 1);
-		else this.resolve(p_action, Math.round(Math.random()) ? 1 : 2); // myslim ze tenhle zapis vynahradi za ty radky na zacatku
+		else {
+			if (this.enemy_mag < 1) this.resolve(p_action, Math.round(Math.random()) ? 1 : 2); // myslim ze tenhle zapis vynahradi za ty radky na zacatku
+			else if (this.enemy_health_now < 2) this.resolve(p_action, Math.round(Math.random()) ? (Math.round(Math.random()) ? 0 : 1) : 2);
+			else this.resolve(p_action, Math.round(Math.random()) ? (Math.round(Math.random()) ? 1 : 2) : 0);
+		}
 		this.turn++;
 	}
 
 	printPlayer(string) {
-		this.player.innerHTML = string + "<br>Charged: " + this.player_mag;
+		this.player.innerHTML = string + "<br>Nabyto: " + this.player_mag;
 	}
 
 	printEnemy(string) {
-		this.enemy.innerHTML = string + "<br>Charged: " + this.enemy_mag;
+		this.enemy.innerHTML = string + "<br>Nabyto: " + this.enemy_mag;
 	}
 
 	resolve(p_action, e_action) {
@@ -62,7 +71,7 @@ class Battle {
 		
 		if (e_action == 0) {
 			if (p_action != 2) {
-				idventory.addHealth(-this.enemy_damage);
+				inventory.addHealth(-this.enemy_damage);
 			}
 
 			this.enemy_mag--;
@@ -89,32 +98,32 @@ class Battle {
 			return;
 		}
 		
-		if (idventory.getHealth() < 1) {
+		if (inventory.getHealth() < 1) {
 			gameOver(score);
 			return;
 		}
 
 		switch (p_action) {
 			case 0:
-				this.printPlayer("Firing");
+				this.printPlayer("Vystřelil");
 				break;
 			case 1:
-				this.printPlayer("Reloading");
+				this.printPlayer("Nabýjel");
 				break;
 			case 2:
-				this.printPlayer("Activating shield");
+				this.printPlayer("Bránil se");
 				break;
 		}
 
 		switch (e_action) {
 			case 0:
-				this.printEnemy("Firing");
+				this.printEnemy("Vystřelil");
 				break;
 			case 1:
-				this.printEnemy("Reloading");
+				this.printEnemy("Nabýjel");
 				break;
 			case 2:
-				this.printEnemy("Activating shield");
+				this.printEnemy("Bránil se");
 				break;
 		}
 
@@ -125,9 +134,8 @@ class Battle {
 	async endBattle() {
 		const battle = this; // a uz zase
 		output.setOutputVisible();
-		await output.write("neco jste proste vyhraly");
-		const button = output.createButton("Pokrčovat &#10140");
-		button.onclick = async function () { battle.callback_function() }
+		await output.write("Vítezství!");
+		output.createButton("Pokrčovat", battle.callback_function);
 	}
 }
 

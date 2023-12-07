@@ -3,6 +3,7 @@ class outputPanel {
 	output = document.getElementById("output");
 	buttons = document.getElementById("buttons");
 	battle = document.getElementById("battle");
+	speed = 35;
 
 	constructor() {
 		this.battle.style.display = "none";
@@ -12,9 +13,10 @@ class outputPanel {
 	// ... kolik bolest jsem si mohl usetrit kdybych to nedal do classky
 	async write(string) {
 		this.clearButtons();
+		this.speed = 35;
 
 		for (let i = 0; i < string.length; i++) {
-			await sleep(35);
+			await sleep(this.speed);
 
 			if (string[i] == "<") {
 				let tag = "";
@@ -39,14 +41,20 @@ class outputPanel {
 		}
 
 		this.output.innerHTML += "<br><br>";
+		this.speed = 35;
 	}
 
-	createButton(string) {
+	skipWrite() {
+		this.speed = 1;
+	}
+
+	createButton(string, callback) {
 		// tohle by se theoreticky dalo optimalizovat zjednodusit pomoci to "namespacu" 
 		const tag = document.createElement("div");
 		this.buttons.appendChild(tag);
 		tag.className = "button panel";
 		tag.innerHTML = string;
+		tag.onclick = async function () { callback() };
 		return tag;
 	}
 

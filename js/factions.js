@@ -1,9 +1,17 @@
 // tohle jsem nakonec z idventare presunul do samostatneho panelu
 
 class factionsPanel {
-	factions = document.getElementById("factions");
-	factionsArray = ["Neznámá", "Galaktická Federace", "Nomádi v Exilu", "Temný Syndikát", "Aliance", "Architekti"]; 
+	factions;
+	factionsArray = ["Neznámá", "Galaktická Federace", "Kazoni", "Ocamp", "Aliance", "Architekti"]; 
 	factionRelations = [50, 100, 50, 50, 20, 80];
+
+	constructor() {
+		const container = document.getElementById("leftContainer");
+
+		this.factions = document.createElement("div");
+		this.factions.className = "panel statusContainer";
+		container.appendChild(this.factions);
+	}
 
 	setRelation(faction, number) {
 		this.factionRelations[faction] = number

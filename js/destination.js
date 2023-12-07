@@ -1,10 +1,23 @@
 class destinationPanel {
-	destination = document.getElementById("destination");
+	destination;
 	statuses = ["Neznámý", "Obydlená", "Neobidlená", "Industrializovaná"];
 
 	name = "4546B";
 	status = 0;
 	faction = 0;
+
+	constructor() {
+		const container = document.getElementById("rightContainer");
+
+		const tagImg = document.createElement("img");
+		tagImg.className = "panel statusContainer";
+		tagImg.src = "./src/planet.png";
+		container.appendChild(tagImg);
+
+		this.destination = document.createElement("div");
+		this.destination.className = "panel statusContainer";
+		container.appendChild(this.destination);
+	}
 
 	setName(string) {
 		this.name = string;

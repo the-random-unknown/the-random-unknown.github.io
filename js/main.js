@@ -1,31 +1,16 @@
-const idventory = new idventoryPanel;
+const ships = ["./src/ships/achilles.png", "./src/ships/aegis.png", "./src/ships/discovery.png", "./src/ships/dragonfire.png", "./src/ships/nimitz.png", "./src/ships/rambler.png", "./src/ships/responder.png", "./src/ships/shieldbreaker.png", "./src/ships/slipstream.png", "./src/ships/sparrow.png", "./src/ships/watchdog.png", "./src/ships/zumwait.png"];
+
+const inventory = new inventoryPanel;
 const factions = new factionsPanel;
 const destination = new destinationPanel;
 const output = new outputPanel;
 let score = 0;
+let currect_event;
 
-async function generateRandomEvent() {
-	console.log("generateRandomEvent() started");
-
-	output.clearButtons();
-	output.clearOutput();
-	idventory.addFuel(-1);
-	
-	if (idventory.getFuel() < 1) gameOver(score);
-	
-	events[(Math.floor(Math.random() * events.length))]();
-	score++;
-
-	console.log("exiting generateRandomEvent()");
-}
-
-// trochu si zacinam rikat jestly jsem se na to nemel vykaslat a proste to okopirovat z chat-gpt jako vsichni ostatni
-// bych se mel aspon dost radku protoze bych to nepsal tak kratce a "efektivne"
-// i kdyz vim ze vetsina tech veci co tu delam neni moc efektivni, musite uznat ze to zabira celkem malo prostoru
-
+// javascript nema neco jako main() funkci tak jsem si udelel vlastni a volam ji jako "onload" v game.html na <body>
 async function main() {
 	updateClock();
-	idventory.update();
+	inventory.update();
 	destination.update();
 	factions.update();
 	generateRandomEvent();

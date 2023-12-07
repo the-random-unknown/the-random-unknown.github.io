@@ -8,7 +8,7 @@
 	<title>Stellar Odyssey</title>
 	<script defer src="./js/utils.js"></script>
 	<script defer src="./js/output.js"></script>
-	<script defer src="./js/idventory.js"></script>
+	<script defer src="./js/inventory.js"></script>
 	<script defer src="./js/factions.js"></script>
 	<script defer src="./js/destination.js"></script>
 	<script defer src="./js/battle.js"></script>
@@ -22,38 +22,31 @@
 	</video>
 	<main class="normal">
 		<div class="panel top">
-			<div id="clock"></div>
+			<div class="panel top_button" id="clock" onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ';"></div>
 			<div><b>Stellar Odyssey</b></div>
 			<div class="panel top_button" onclick="goToMenu()">Return to Menu</div>
 		</div>
-		<div class="panel static left">
-			<img class="panel statusContainer" src="./src/ships/dragonfire.png">
-			<div id="idventory" class="panel statusContainer"></div>
-			<div id="factions" class="panel statusContainer"></div>
-		</div>
+		<div class="panel static left" id="leftContainer"></div>
 		<div class="panel static center">
-			<div id="output" class="outputContainer panel"></div>
+			<div id="output" onclick="output.skipWrite()" class="outputContainer panel"></div>
 			<div id="battle" class="battleContainer panel">
 				<div>
-					<h2>You</h2>
-					<img class="panel" src="./src/ships/dragonfire.png">
+					<h2>Vy</h2>
+					<img class="panel" id="battle_image">
 					<h2 id="battle_player"></h2>
 				</div>
 				<div>
 					<h3>vs</h3>
 				</div>
 				<div>
-					<h2>Enemy</h2>
-					<img class="panel" src="./src/ships/sparrow.png">
+					<h2>Nepřítel</h2>
+					<img class="panel" id="enemy_ship">
 					<h2 id="battle_enemy"></h2>
 				</div>
 			</div>
 			<div id="buttons" class="buttonsContainer"></div>
 		</div>
-		<div class="panel static right">
-			<img class="panel statusContainer" src="./src/planet.png">
-			<div id="destination" class="panel statusContainer"></div>
-		</div>
+		<div class="panel static right" id="rightContainer"></div>
 	</main>
 	<div class="small panel">Your display is too small. If you're on your phone, try it on PC.</div>
 </body>
