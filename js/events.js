@@ -279,3 +279,92 @@ dark_syndicate_esriset[11] = async function () {
 	output.createButton("Zaútočíš na Kazony a spolehneš se na moment překvapení" + battle, dark_syndicate_esriset[9]);
 	output.createButton("Rovnou půjdeš na přistání na planetě", dark_syndicate_esriset[10]);
 }
+
+//============================ Temný syndikát - odplata ============================
+let temny_syndikat_odplata = [];
+events.push(temny_syndikat_odplata);
+
+temny_syndikat_odplata[0] = async function () {
+	await output.write("Zastavila tě loď Temného syndikátu.");
+
+	output.createButton("Máš na palubě ukradené Zrcadlo z Erisetu", temny_syndikat_odplata[2]);
+	output.createButton("Nemáš na palubě Zrcadlo z Erisetu", temny_syndikat_odplata[4]);
+}
+
+temny_syndikat_odplata[2] = async function () {
+	await output.write("Syndikát požaduje vydání Zrcadla, zaplatí za něj 3 paliva a 3 materiály");
+
+	output.createButton("Vydáš zrcadlo, +10% karma pro Temný syndikát, +3 paliva, +3 materiál" + jump, function () {
+			factions.addFuel(3);
+			factions.addScrap(3);
+			factions.addRelation(1, -20);
+			generateRandomEvent();
+		});
+	output.createButton("" + battle, temny_syndikat_odplata[1]);
+	output.createButton("" + jump, generateRandomEvent);
+	output.createButton("Pokračovat" + jump, function () {
+			factions.addFuel(-1);
+			factions.addScrap(-1);
+			factions.addRelation(1, -20);
+			generateRandomEvent();
+		})
+}
+
+Temný Syndikát 02 – odplata
+2)	Syndikát požaduje vydání Zrcadla, zaplatí za něj 3 paliva a 3 materiály
+a.	Vydáš zrcadlo, +10% karma pro Temný syndikát, +3 paliva, +3 materiál => 99
+b.	Rozhodneš se pro boj, loď Syndikáti je skoro stejně silná, jako tu (90% síla, 50% životy) => 3
+3)	Souboj s lodí Syndikátu
+a.	Vítězství, -20% karma pro Temný Syndikát => 99
+b.	Porážka: -20% karma pro Temný Syndikát, -1 palivo, -1 materiál => 99
+4)	Startuje se scénář Temný Syndikát 01 – Zrcadlo z Erisetu
+
+temny_syndikat_odplata[0] = async function () {
+	await output.write("");
+
+	output.createButton("" + battle, temny_syndikat_odplata[1]);
+	output.createButton("" + jump, temny_syndikat_odplata[1]);
+	output.createButton("" + jump, generateRandomEvent);
+	output.createButton("Pokračovat" + jump, function () {
+			factions.addFuel(-1);
+			factions.addScrap(-1);
+			factions.addRelation(1, -20);
+			generateRandomEvent();
+		})
+}
+
+temny_syndikat_odplata[1] = async function () {
+	new Battle(10, 5, async function () {
+		await output.write("");
+		if (inventory.getScrap() > 2) output.createButton("", temny_syndikat_odplata[7]);
+		else output.createButton("", temny_syndikat_odplata[7]);
+	});
+}
+
+
+
+//============================ Šablona ============================
+let sablona = [];
+events.push(sablona);
+
+sablona[0] = async function () {
+	await output.write("");
+
+	output.createButton("" + battle, sablona[1]);
+	output.createButton("" + jump, sablona[1]);
+	output.createButton("" + jump, generateRandomEvent);
+	output.createButton("Pokračovat" + jump, function () {
+			factions.addFuel(-1);
+			factions.addScrap(-1);
+			factions.addRelation(1, -20);
+			generateRandomEvent();
+		});
+	
+}
+sablona[1] = async function () {
+	new Battle(10, 5, async function () {
+		await output.write("");
+		if (inventory.getScrap() > 2) output.createButton("", sablona[0]);
+		else output.createButton("", sablona[0]);
+	});
+}
