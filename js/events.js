@@ -23,6 +23,9 @@ special_events[0] = async function () {
 }
 
 //============================ Kazoni – 01 - voda ============================
+/*
+
+*/
 let kazoni_voda = [];
 events.push(kazoni_voda);
 
@@ -96,6 +99,9 @@ kazoni_voda[6] = async function () {
 
 
 //============================ Kazoni – 02 - Odplata ============================
+/*
+
+*/
 let kazoni_odplata = [];
 events.push(kazoni_odplata);
 
@@ -162,6 +168,9 @@ kazoni_odplata[5] = async function () {
 };
 
 //============================ Temný Syndikát - Zrcadlo z Erisetu ============================
+/*
+
+*/
 let dark_syndicate_eriset = [];
 events.push(dark_syndicate_esriset);
 
@@ -281,6 +290,9 @@ dark_syndicate_esriset[11] = async function () {
 }
 
 //============================ Temný syndikát - odplata ============================
+/*
+
+*/
 let temny_syndikat_odplata = [];
 events.push(temny_syndikat_odplata);
 
@@ -288,7 +300,7 @@ temny_syndikat_odplata[0] = async function () {
 	await output.write("Zastavila tě loď Temného syndikátu.");
 
 	output.createButton("Máš na palubě ukradené Zrcadlo z Erisetu", temny_syndikat_odplata[2]);
-	output.createButton("Nemáš na palubě Zrcadlo z Erisetu", temny_syndikat_odplata[4]);
+	output.createButton("Nemáš na palubě Zrcadlo z Erisetu", dark_syndicate_esriset[0]);
 }
 
 temny_syndikat_odplata[2] = async function () {
@@ -297,51 +309,154 @@ temny_syndikat_odplata[2] = async function () {
 	output.createButton("Vydáš zrcadlo, +10% karma pro Temný syndikát, +3 paliva, +3 materiál" + jump, function () {
 			factions.addFuel(3);
 			factions.addScrap(3);
-			factions.addRelation(1, -20);
+			factions.addRelation(1, 10);
 			generateRandomEvent();
 		});
-	output.createButton("" + battle, temny_syndikat_odplata[1]);
+	output.createButton("Rozhodneš se pro boj, loď Syndikáti je skoro stejně silná, jako tvoje" + battle, temny_syndikat_odplata[3]);
 	output.createButton("" + jump, generateRandomEvent);
-	output.createButton("Pokračovat" + jump, function () {
-			factions.addFuel(-1);
-			factions.addScrap(-1);
-			factions.addRelation(1, -20);
-			generateRandomEvent();
-		})
 }
 
-Temný Syndikát 02 – odplata
-2)	Syndikát požaduje vydání Zrcadla, zaplatí za něj 3 paliva a 3 materiály
-a.	Vydáš zrcadlo, +10% karma pro Temný syndikát, +3 paliva, +3 materiál => 99
-b.	Rozhodneš se pro boj, loď Syndikáti je skoro stejně silná, jako tu (90% síla, 50% životy) => 3
-3)	Souboj s lodí Syndikátu
-a.	Vítězství, -20% karma pro Temný Syndikát => 99
-b.	Porážka: -20% karma pro Temný Syndikát, -1 palivo, -1 materiál => 99
-4)	Startuje se scénář Temný Syndikát 01 – Zrcadlo z Erisetu
-
-temny_syndikat_odplata[0] = async function () {
-	await output.write("");
-
-	output.createButton("" + battle, temny_syndikat_odplata[1]);
-	output.createButton("" + jump, temny_syndikat_odplata[1]);
-	output.createButton("" + jump, generateRandomEvent);
-	output.createButton("Pokračovat" + jump, function () {
-			factions.addFuel(-1);
-			factions.addScrap(-1);
-			factions.addRelation(1, -20);
-			generateRandomEvent();
-		})
-}
-
-temny_syndikat_odplata[1] = async function () {
-	new Battle(10, 5, async function () {
+temny_syndikat_odplata[3] = async function () {
+	new Battle(9, 4, async function () {
 		await output.write("");
-		if (inventory.getScrap() > 2) output.createButton("", temny_syndikat_odplata[7]);
-		else output.createButton("", temny_syndikat_odplata[7]);
+		factions.addRelation(1, -20);
+		output.createButton("", generateRandomEvent);
+	});
+}
+
+//============================ Nomádi v exilu - duranium ============================
+/*
+Nomádi v exilu 01 – duranium
+1)	Před sebou vidíte vesmírnou loď s charakteristickými hrby, je ti jasné, že to je loď Nomádů v Exilu. Co chceš udělat?
+a.	Navázat spojení => 2
+b.	Ignorovat => 99
+2)	Nomádi pro Tebe mají návrh – na povrchu planety, která patří Temnému Syndikátu, se nachází důl na velmi vzácné trilithium. Bohužel nemají technologii na těžbu, proto nabízejí spolupráci tobě. Odměnou budou 3 jednotky paliva a 2 jednotky materiálu.
+a.	Spustíš se na planetu => 3
+b.	Odmítneš spolupráci: -10% pro karmu Nomádů => 99
+3)	Těžba se vydařila, bohužel při odletu tě Temný Syndikát identifikoval => -20% karma pro Temný Syndikát. +10% karma pro Namády, +3 palivo, +2 materiál.
+a.	Pokračovat => 99
+*/
+
+let nomadi_duranium = [];
+events.push(nomadi_duranium);
+
+nomadi_duranium[0] = async function () {
+	await output.write("Před sebou vidíte vesmírnou loď s charakteristickými hrby, je ti jasné, že to je loď Nomádů v Exilu. Co chceš udělat?");
+
+	output.createButton("Navázat spojení", nomadi_duranium[2]);
+	output.createButton("Ignorovat" + jump, generateRandomEvent);
+}
+
+nomadi_duranium[2] = async function () {
+	await output.write("Nomádi pro Tebe mají návrh – na povrchu planety, která patří Temnému Syndikátu, se nachází důl na velmi vzácné trilithium. Bohužel nemají technologii na těžbu, proto nabízejí spolupráci tobě. Odměnou budou 3 jednotky paliva a 2 jednotky materiálu.");
+
+	output.createButton("Spustíš se na planetu", nomadi_duranium[3]);
+	output.createButton("Odmítneš spolupráci:" + jump, function () {
+			factions.addRelation(1, -10);
+			generateRandomEvent();
+		});
+}
+
+nomadi_duranium[3] = async function () {
+	await output.write("Těžba se vydařila, bohužel při odletu tě Temný Syndikát identifikoval");
+
+	output.createButton("Pokračovat" + jump, function () {
+			factions.addFuel(3);
+			factions.addScrap(2);	
+			factions.addRelation(1, -20); // Syndikát
+			factions.addRelation(3, 10); // Nomádi
+			generateRandomEvent();
+		});
+}
+
+//============================ Nomádi v exilu - lov ============================
+/*
+Nomádi v Exilu 02 – Lov
+1)	Dálkové senzory ti ukázaly válečný křižník Temného Syndikátu, jak pronásleduje nákladní loď Nomádů z Exilu. Přidáš se k pronásledování, abys vylepšil karmu a trochu se napakoval, nebo pomůžeš ochránit nákladní loď?
+a.	Zahájíš palbu na nákladní loď Nomádů => 2
+b.	Zahájíš palbu na křižník Temného Syndikátu => 3
+c.	Nebudeš se do toho míchat => 99
+2)	Přesným zásahem jsi vyřadil motory nákladní lodi. Chceš přirazit, ale do cesty se ti postavila loď Temného Syndikátu. Nabíjejí zbraně a vůbec se nechtějí dělit o kořist.
+a.	Bude boj => 4
+b.	Ustupuješ => 99
+3)	Zvolil jsi boj s lodí Temného Syndikátu, abys ochránil nákladní loď. Má o 20% méně síly, než ty, ale o 20% více životů
+a.	Vítězství => 5
+b.	Prohra -2 materiál na oprav, -1 zdraví => 99
+4)	 Zvolil jsi boj s lodí Temného Syndikátu, abys měl loď Nomádů jen pro sebe. Má o 20% méně síly, než ty, ale o 20% více životů
+a.	Vítězství => 6
+b.	Prohra -2 materiál na oprav, -1 zdraví, -10% karma Temný Syndikát => 99
+5)	Nomádi ti jako projev vděčnosti věnovali 3 paliva a 2 materiály, +10% karma Nomádi
+a.	Pokračovat => 99 
+6)	Máš pro sebe celou loď Nomádů. Posádka se vzdala, ale poškodil sis karmu pro Nomády o -20%. Získal jsi 1 palivo a 1 materiál.
+a.	Pokračovat => 99
+*/
+
+let nomadi_hunt = [];
+events.push(nomadi_hunt);
+
+nomadi_hunt[0] = async function () {
+	await output.write("Dálkové senzory ti ukázaly válečný křižník Temného Syndikátu, jak pronásleduje nákladní loď Nomádů z Exilu. Přidáš se k pronásledování, abys vylepšil karmu a trochu se napakoval, nebo pomůžeš ochránit nákladní loď?");
+
+	output.createButton("Zahájíš palbu na nákladní loď Nomádů" + battle, nomadi_hunt[2]);
+	output.createButton("Zahájíš palbu na křižník Temného Syndikátu" + battle, nomadi_hunt[3]);
+	output.createButton("Nebudeš se do toho míchat" + jump, generateRandomEvent);
+}
+
+nomadi_hunt[2] = async function () {
+	await output.write("Přesným zásahem jsi vyřadil motory nákladní lodi. Chceš přirazit, ale do cesty se ti postavila loď Temného Syndikátu. Nabíjejí zbraně a vůbec se nechtějí dělit o kořist.");
+
+	output.createButton("Bude boj" + battle, nomadi_hunt[4]);
+	output.createButton("Ustupuješ" + jump, generateRandomEvent);
+}
+
+nomadi_hunt[3] = async function () {
+	new Battle(8, 6, async function () {
+		await output.write("Zvolil jsi boj s lodí Temného Syndikátu, abys ochránil nákladní loď. Má o 20% méně síly, než ty, ale o 20% více životů.");
+		output.createButton("Nomádi ti jako projev vděčnosti věnovali 3 paliva a 2 materiály, +10% karma Nomádi" + jump, function () {
+			factions.addFuel(3);
+			factions.addScrap(2);
+			factions.addRelation(1, 10); // Nomádi
+			generateRandomEvent();
+		});
+	});
+}
+
+nomadi_hunt[4] = async function () {
+	new Battle(8, 6, async function () {
+		await output.write("Zvolil jsi boj s lodí Temného Syndikátu, abys měl loď Nomádů jen pro sebe. Má o 20% méně síly, než ty, ale o 20% více životů");
+		output.createButton("Máš pro sebe celou loď Nomádů. Posádka se vzdala, ale poškodil sis karmu pro Nomády o -20%. Získal jsi 1 palivo a 1 materiál" + jump, function () {
+			factions.addFuel(1);
+			factions.addScrap(1);
+			factions.addRelation(1, -20); // Nomádi
+			generateRandomEvent();
+		});
 	});
 }
 
 
+
+
+nomadi_hunt[0] = async function () {
+	await output.write("");
+
+	output.createButton("" + battle, nomadi_hunt[1]);
+	output.createButton("" + jump, nomadi_hunt[1]);
+	output.createButton("" + jump, generateRandomEvent);
+	output.createButton("Pokračovat" + jump, function () {
+			factions.addFuel(-1);
+			factions.addScrap(-1);
+			factions.addRelation(1, -20);
+			generateRandomEvent();
+		});
+	
+}
+nomadi_hunt[1] = async function () {
+	new Battle(10, 5, async function () {
+		await output.write("");
+		if (inventory.getScrap() > 2) output.createButton("", nomadi_hunt[0]);
+		else output.createButton("", nomadi_hunt[0]);
+	});
+}
 
 //============================ Šablona ============================
 let sablona = [];
