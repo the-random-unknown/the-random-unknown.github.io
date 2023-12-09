@@ -209,13 +209,73 @@ dark_syndicate_esriset[5] = async function () {
 		});
 	});
 }
-6)	Rozhodl jsi se ještě jednou jednat se Syndikátem. Tentokrát již odměna bude nižší - +1 palivo a +1 materiál
-a.	Přijmeš úkol a letíš na Ocamp => 4
-b.	Nechceš letět na Ocamp, protože Kazoni tě zrovna nemilují; požaduješ ochranu => 11
 
 dark_syndicate_esriset[6] = async function () {
-	wait output.write("Rozhodl jsi se ještě jednou jednat se Syndikátem. Tentokrát již odměna bude nižší: +1 palivo a +1 materiál");
+	await output.write("Rozhodl jsi se ještě jednou jednat se Syndikátem. Tentokrát již odměna bude nižší: +1 palivo a +1 materiál");
 
 	output.createButton("Přijmeš úkol a letíš na Ocamp", dark_syndicate_esriset[4]);
 	output.createButton("Nechceš letět na Ocamp, protože Kazoni tě zrovna nemilují; požaduješ ochranu", dark_syndicate_esriset[11])
+}
+
+dark_syndicate_esriset[7] = async function () {
+	await output.write("Únik se podařil, ale nemáš žádný zisk: -1 palivo a -1 materiál");
+
+	output.createButton("Pokračovat (Karma pro Kazony -20%)" + jump, function () {
+			factions.addFuel(-1);
+			factions.addScrap(-1);
+			generateRandomEvent();
+		});
+}
+
+dark_syndicate_esriset[8] = async function () {
+	await output.write("Přistál jsi na planetě a díky dobrým vztahům s Ocampy jsi našel Zrcadlo z Erisetu. Ocampové požadují polovinu tvých zásob vody.");
+
+	output.createButton("Přijmeš nabídku a odvážíš Zrcadlo s Erisetu Temnému Syndikátu: zisk podle dohody. Karma +10% Temný Syndikát, +10% Ocampové" + jump, function () {
+			factions.addFuel(3);
+			factions.addScrap(5);
+			factions.addRelation(1, 10);
+			factions.addRelation(3, 10);
+			generateRandomEvent();
+		});
+	output.createButton("Přijmeš nabídku, ale Zrcadlo nepředáš Temnému syndikátu, necháš si ho: karma Temný syndikát -20%, karma Ocampove +10%, žádný zisk, -1 palivo" + jump, function () {
+			factions.addFuel(-1);
+			factions.addRelation(1, -20);
+			factions.addRelation(3, 10);
+			generateRandomEvent();
+		});
+}
+
+dark_syndicate_esriset[9] = async function () {
+	new Battle(7, 4, async function () {
+		await output.write("Přemohl jsi Kazony, můžeš přistát na Ocampu");
+		output.createButton("Pokračovat na planetu", function () {
+			factions.addRelation(1, -20);
+			dark_syndicate_esriset[8];
+		});
+	});
+}
+
+dark_syndicate_esriset[10] = async function () {
+	await output.write("Zvolil jsi velmi riskantní manévr. Kazoni tě pronásledují do atmosféry, je ti jasné, že po přistání tě zničí. Volíš ústup a mizíš ze sektoru: -20% karma pro Kazony, -10% karma pro Syndikát, -1 palivo, -1 materiál.");
+
+	output.createButton("Pokračovat" + jump, function () {
+			factions.addFuel(-1);
+			factions.addScrap(-1);
+			factions.addRelation(1, -20);
+			factions.addRelation(3, -10);
+			generateRandomEvent();
+		});
+}
+
+dark_syndicate_esriset[11] = async function () {
+	await output.write("Dohaduješ se Syndikátem ochranu pře Kazony. Syndikát ti vyhovuje, zaručuje ti volný přístup na planetu.");
+
+	output.createButton("Pokračovat", dark_syndicate_esriset[8]);
+}
+
+dark_syndicate_esriset[11] = async function () {
+	await output.write("Vyjednávání nepomohlo.");
+
+	output.createButton("Zaútočíš na Kazony a spolehneš se na moment překvapení" + battle, dark_syndicate_esriset[9]);
+	output.createButton("Rovnou půjdeš na přistání na planetě", dark_syndicate_esriset[10]);
 }
