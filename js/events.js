@@ -110,7 +110,7 @@ kazoni_voda[4] = async function () {
 kazoni_voda[5] = async function () {
 	new Battle(2, 2, async function () {
 		await output.write("Kapitán napadení nečekal, podařilo se ti ho přemoci. Bohužel na lodi není nic, co bys mohl použít.");
-		output.createButton("Pokračovat", function () {
+		output.createButton("Pokračovat" + jump, function () {
 			factions.addRelation(3, -30);
 			generateRandomEvent();
 		});
@@ -137,16 +137,16 @@ kazoni_voda[7] = async function () {
 	await output.write("Podařilo se ti na planetu dopravit velké množství vody, můžeš si vybrat odměnu. Karma +30% pro Ocamp");
 	factions.addRelation(2, 30);
 
-	output.createButton("+2 palivo, +2 materiál", function () {
+	output.createButton("+2 palivo, +2 materiál" + jump, function () {
 		inventory.addFuel(2);
 		inventory.addScrap(2);
 		generateRandomEvent();
 	})
-	output.createButton("+5 palivo", function () {
+	output.createButton("+5 palivo" + jump, function () {
 		inventory.addFuel(5);
 		generateRandomEvent();
 	})
-	output.createButton("+5 materiál", function () {
+	output.createButton("+5 materiál" + jump, function () {
 		inventory.addScrap(5);
 		generateRandomEvent();
 	})
@@ -181,11 +181,11 @@ events.push(kazoni_odplata);
 
 kazoni_odplata[0] = async function () {
 	if(!inventory.hasItem("kazoni_voda_completed")){
+		inventory.addFuel(1);
 		generateRandomEvent();
 		return;
 	};
 
-	
 	destination.setName("Planeta " + getRadnomCode());
 	destination.setFaction(1);
 	destination.setStatus(0);
@@ -291,6 +291,7 @@ events.push(dark_syndicate_eriset);
 
 dark_syndicate_eriset[0] = async function () {
 	if(!inventory.hasItem("kazoni_voda_completed")){
+		inventory.addFuel(1);
 		generateRandomEvent();
 		return;
 	};
