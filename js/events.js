@@ -18,7 +18,7 @@ special_events[0] = async function () {
 	destination.setFaction(1);
 	destination.setStatus(0);
 
-	await output.write("Vypadá to že tenhle planeta je nobydlená a nic se neděje.");
+	await output.write("Vypadá to že tenhle planeta je neobydlená a nic se neděje.");
 
 	output.createButton("Skočit dál &#10140;", generateRandomEvent);
 }
