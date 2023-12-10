@@ -620,13 +620,21 @@ architects_star_power[4] = async function () {
 }
 
 architects_star_power[5] = async function () {
-	await output.write("Malý risk se vyplatil, získal jsi malé množství paliva (2 jednotky) a 4 jednotky materiálu. Také nějaký zdravotnický materiál (+20% ke zdraví)");
+	await output.write("Malý risk se vyplatil, získal jsi malé množství paliva a materiálu. Také nějaký zdravotnický materiál.");
 
 	output.createButton("Pokračovat" + jump, function () {
-			inventory.addFuel(2);
-			inventory.addScrap(4);
+		if( Math.random*100 < factions.getRelation(5) ){
+			inventory.addFuel(4);
+			inventory.addScrap(5);
 			inventory.addHealth(20);
 			generateRandomEvent();
+		}
+		else{
+			inventory.addFuel(2);
+			inventory.addScrap(1);
+			inventory.addHealth(5);
+			generateRandomEvent();
+		}
 		});
 }
 
