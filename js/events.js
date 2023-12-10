@@ -290,6 +290,11 @@ let dark_syndicate_eriset = [];
 events.push(dark_syndicate_eriset);
 
 dark_syndicate_eriset[0] = async function () {
+	if(!inventory.hasItem("kazoni_voda_completed")){
+		generateRandomEvent();
+		return;
+	};
+	
 	destination.setName("Planeta " + getRadnomCode());
 	destination.setFaction(1);
 	destination.setStatus(0);
