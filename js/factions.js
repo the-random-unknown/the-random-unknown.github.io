@@ -3,7 +3,7 @@
 class factionsPanel {
 	factions;
 	factionsArray = ["Neznámá", "Kazoni", "Ocamp", "Temný syndikát", "Nomádi v exilu", "Architekti"]; 
-	factionRelations = [50, 100, 50, 50, 20, 80];
+	factionRelations = [50, 50, 50, 50, 50, 50];
 
 	constructor() {
 		const container = document.getElementById("leftContainer");

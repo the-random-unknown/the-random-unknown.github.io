@@ -151,6 +151,7 @@ let kazoni_odplata = [];
 events.push(kazoni_odplata);
 
 kazoni_odplata[0] = async function () {
+	if(!isCompleted(kazoni_voda)) generateRandomEvent();
 	destination.setName("Planeta " + getRadnomCode());
 	destination.setFaction(1);
 	destination.setStatus(0);
@@ -159,7 +160,7 @@ kazoni_odplata[0] = async function () {
 
 	output.createButton("Pokusíš se uniknout do blízkého oblaku ionizovaného plynu", function () {
 			inventory.addScrap(-1);
-			kazoni_odplata[2];
+			kazoni_odplata[2]();
 		});
 	output.createButton("Přijmeš výzvu a budeš bojovat " + battle, kazoni_odplata[3]);
 	output.createButton("Zkusíš se domluvit", kazoni_odplata[6]);
@@ -298,7 +299,7 @@ dark_syndicate_esriset[5] = async function () {
 		await output.write("Přemohl jsi Kazony, můžeš přistát na Ocampu");
 		output.createButton("Pokračovat (Karma pro Kazony -20%)", function () {
 			factions.addRelation(1, -20);
-			dark_syndicate_esriset[8];
+			dark_syndicate_esriset[8]();
 		});
 	});
 }
@@ -343,7 +344,7 @@ dark_syndicate_esriset[9] = async function () {
 		await output.write("Přemohl jsi Kazony, můžeš přistát na Ocampu");
 		output.createButton("Pokračovat na planetu", function () {
 			factions.addRelation(1, -20);
-			dark_syndicate_esriset[8];
+			dark_syndicate_esriset[8]();
 		});
 	});
 }
@@ -689,53 +690,28 @@ architects_pyramid_of_sadness[9] = async function () {
 	output.createButton("Odlétáš" + jump, generateRandomEvent);
 }
 
-
-architects_pyramid_of_sadness[10] = async function () {
-	await output.write("");
-
-	output.createButton("" + battle, architects_pyramid_of_sadness[1]);
-	output.createButton("" + jump, architects_pyramid_of_sadness[1]);
-	output.createButton("" + jump, generateRandomEvent);
-	output.createButton("Pokračovat" + jump, function () {
-			inventory.addFuel(-1);
-			inventory.addScrap(-1);
-			factions.addRelation(1, -20);
-			generateRandomEvent();
-		});
-}
-
-architects_pyramid_of_sadness[1] = async function () {
-	new Battle(10, 5, async function () {
-		await output.write("");
-		if (inventory.getScrap() > 2) output.createButton("", architects_pyramid_of_sadness[0]);
-		else output.createButton("", architects_pyramid_of_sadness[0]);
-	});
-}
 //============================ Šablona ============================
-/*
-*/
+// let sablona = [];
+// events.push(sablona);
 
-let sablona = [];
-events.push(sablona);
+// sablona[0] = async function () {
+// 	await output.write("");
 
-sablona[0] = async function () {
-	await output.write("");
-
-	output.createButton("" + battle, sablona[1]);
-	output.createButton("" + jump, sablona[1]);
-	output.createButton("" + jump, generateRandomEvent);
-	output.createButton("Pokračovat" + jump, function () {
-			inventory.addFuel(-1);
-			inventory.addScrap(-1);
-			factions.addRelation(1, -20);
-			generateRandomEvent();
-		});
+// 	output.createButton("" + battle, sablona[1]);
+// 	output.createButton("" + jump, sablona[1]);
+// 	output.createButton("" + jump, generateRandomEvent);
+// 	output.createButton("Pokračovat" + jump, function () {
+// 			inventory.addFuel(-1);
+// 			inventory.addScrap(-1);
+// 			factions.addRelation(1, -20);
+// 			generateRandomEvent();
+// 		});
 	
-}
-sablona[1] = async function () {
-	new Battle(10, 5, async function () {
-		await output.write("");
-		if (inventory.getScrap() > 2) output.createButton("", sablona[0]);
-		else output.createButton("", sablona[0]);
-	});
-}
+// }
+// sablona[1] = async function () {
+// 	new Battle(10, 5, async function () {
+// 		await output.write("");
+// 		if (inventory.getScrap() > 2) output.createButton("", sablona[0]);
+// 		else output.createButton("", sablona[0]);
+// 	});
+// }

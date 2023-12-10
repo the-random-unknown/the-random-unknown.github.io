@@ -6,6 +6,7 @@ class inventoryPanel {
 	fuel = 10;
 	credits = 20;
 	scrap = 10;
+	items = [];
 
 	constructor() {
 		const container = document.getElementById("leftContainer");
@@ -70,6 +71,10 @@ class inventoryPanel {
 		this.update();
 	}
 
+	addItem(item) {
+		this.items.push(String(item));
+	}
+
 	getHealth() {
 		return this.health;
 	}
@@ -89,6 +94,7 @@ class inventoryPanel {
 	getScrap() {
 		return this.scrap;
 	}
+
 
 	// vim ze tyhle uipdate funkce by se daly dat do jedne univerzalni, ale zas jako nekde se ty radky vzit musi
 	update() {
