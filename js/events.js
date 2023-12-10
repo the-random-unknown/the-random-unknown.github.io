@@ -1,5 +1,5 @@
-// tehlensto je na nahodne eventy co vas muzou potkat
-// nakonej jsem to jeste predelal takze nejsou porad to stejny
+// tohle je na nahodne eventy co vas muzou potkat
+// nakonec jsem to jeste predelal, takze nejsou porad to stejny
 // vzhledem k tomu ze nektere eventy mohou byt pristupne az po jinych
 // struktura je celkove o dost slozitejsi a je postupne zabudovana a arrayich
 // taky jsem se to pokusil rozdelit pomoci komentatu aby se v tom dalo lepe orientovat
@@ -61,7 +61,7 @@ kazoni_voda[0] = async function () {
 	destination.setFaction(1);
 	destination.setStatus(0);
 
-	await output.write("Při cestě galaxií jsi potkal zastaralou nákladní loď, která tě žádá o pomoc.");
+	await output.write("Při cestě galaxií jsi potkal zastaralou nákladní loď, která tě žádá o pomoc. Poznáváš výsostné znaky Ocampů");
 
 	output.createButton("Rozhodneš se pomoci", kazoni_voda[2]);
 	output.createButton("Využiješ své převahy a rozhodneš se loď zničit" + battle, kazoni_voda[3]);
@@ -69,7 +69,7 @@ kazoni_voda[0] = async function () {
 };
 
 kazoni_voda[2] = async function () {
-	await output.write("Loď patří Ocampům, kteří žijí na své planetě Ocampa pod nadvládou Kazonů, v otroctví. Na planetě je kritický nedostatek vody, proto má nákladní loď za úkol najít asteroid se zásobou ledu, která po vytěžení přiveze na Ocampu. Kapitán a zároveň jediný člen posádky lodi ti přislíbí velkou odměnu v podobě paliva a surovin, kterých mají na planetě přebytek, pokud jim pomůžeš nalézt a dovézt na planetu vodu.");
+	await output.write("Loď skutečně patří Ocampům, kteří žijí na své planetě Ocampa pod nadvládou Kazonů, v otroctví. Na planetě je kritický nedostatek vody, proto má nákladní loď za úkol najít asteroid se zásobou ledu, která po vytěžení přiveze na Ocampu. Kapitán a zároveň jediný člen posádky lodi ti přislíbí velkou odměnu v podobě paliva a surovin, kterých mají na planetě přebytek, pokud jim pomůžeš nalézt a dovézt na planetu vodu.");
 
 	output.createButton("Použiješ své dálkové senzory k nalezení vhodného asteroidu s vodou", kazoni_voda[4]);
 	output.createButton("Nezajímá tě to, rozloučíš se a odlétáš" + jump, generateRandomEvent);
@@ -124,6 +124,24 @@ kazoni_voda[6] = async function () {
 	});
 }
 
+kazoni_voda[7] = async function () {
+	await output.write("Podařilo se ti na planetu dopravit velké množství vody, můžeš si vybrat odměnu. Karma +30% pro Ocamp");
+	factions.addRelation(2, 30);
+
+	output.createButton("+2 palivo, +2 materiál", function () {
+		inventory.addFuel(2);
+		inventory.addScrap(2);
+		generateRandomEvent();
+	})
+	output.createButton("+5 palivo", function () {
+		inventory.addFuel(5);
+		generateRandomEvent();
+	})
+	output.createButton("+5 materiál", function () {
+		inventory.addScrap(5);
+		generateRandomEvent();
+	})
+}
 
 //============================ Kazoni - 02 - Odplata ============================
 /*
