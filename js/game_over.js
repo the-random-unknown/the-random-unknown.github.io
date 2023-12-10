@@ -1,4 +1,4 @@
-const output = new outputPanel;
+const output = new outputController;
 
 async function main() {
 	updateClock();

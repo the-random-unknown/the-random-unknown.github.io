@@ -22,10 +22,13 @@ async function generateRandomEvent() {
 	while (new_event == currect_event) {
 		new_event = (Math.floor(Math.random() * events.length));
 	}
-
-	events[new_event][0]();
+	
+	destination.generateRandomPlanet();
 	currect_event = new_event;
+	completed.push(events[new_event]);
+	events[new_event][0]();
 	score++;
+
 
 	console.log("exiting generateRandomEvent()");
 }
@@ -71,4 +74,10 @@ function openFullscreen() {
 	else if (document.documentElement.webkitRequestFullscreen) document.documentElement.webkitRequestFullscreen();
 	else if (document.documentElement.msRequestFullscreen) document.documentElement.msRequestFullscreen();
 }
-  
+
+function isCompleted(event) {
+	return completed.includes(event);
+}
+
+// ඞ Tomáš
+

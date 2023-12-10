@@ -38,7 +38,7 @@ class Battle {
 			action_fire.onclick = async function () { battle.enemyTurn(0); }
 		}
 
-		const action_reload = output.createButton("Nabýt");
+		const action_reload = output.createButton("Nabít");
 		action_reload.onclick = async function () { battle.enemyTurn(1); }
 
 		const action_shield = output.createButton("Obrana");
@@ -57,11 +57,11 @@ class Battle {
 	}
 
 	printPlayer(string) {
-		this.player.innerHTML = string + "<br>Nabyto: " + this.player_mag;
+		this.player.innerHTML = string + "<br>Nabito: " + this.player_mag;
 	}
 
 	printEnemy(string) {
-		this.enemy.innerHTML = string + "<br>Nabyto: " + this.enemy_mag;
+		this.enemy.innerHTML = string + "<br>Nabito: " + this.enemy_mag;
 	}
 
 	resolve(p_action, e_action) {
@@ -108,7 +108,7 @@ class Battle {
 				this.printPlayer("Vystřelil");
 				break;
 			case 1:
-				this.printPlayer("Nabýjel");
+				this.printPlayer("Nabíjel");
 				break;
 			case 2:
 				this.printPlayer("Bránil se");

@@ -1,12 +1,12 @@
-class outputPanel {
+class outputController {
 	// načítaní elementů ze základniho HTML
-	output = document.getElementById("output");
-	buttons = document.getElementById("buttons");
-	battle = document.getElementById("battle");
+	output = document.getElementById("outputContainer");
+	buttons = document.getElementById("buttonsContainer");
+	battle = document.getElementById("battleContainer");
 	speed = 35;
 
 	constructor() {
-		this.battle.style.display = "none";
+		this.setOutputVisible();
 	}
 
 	// tohle je ta funkce co jsem mel jako prvni, tady to vsechno zacalo
@@ -70,7 +70,7 @@ class outputPanel {
 		this.output.style.display = "none";
 		this.battle.style.display = "flex"; // flex / grid / block
 	}
-	
+
 	setOutputVisible() {
 		this.battle.style.display = "none";
 		this.output.style.display = "block";

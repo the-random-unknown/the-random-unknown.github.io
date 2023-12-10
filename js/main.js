@@ -3,7 +3,7 @@ const ships = ["./src/ships/achilles.png", "./src/ships/aegis.png", "./src/ships
 const inventory = new inventoryPanel;
 const factions = new factionsPanel;
 const destination = new destinationPanel;
-const output = new outputPanel;
+const output = new outputController;
 let score = 0;
 let currect_event;
 

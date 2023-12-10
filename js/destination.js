@@ -1,5 +1,6 @@
 class destinationPanel {
 	destination;
+	image;
 	statuses = ["Neznámý", "Obydlená", "Neobidlená", "Industrializovaná"];
 
 	name = "4546B";
@@ -9,10 +10,10 @@ class destinationPanel {
 	constructor() {
 		const container = document.getElementById("rightContainer");
 
-		const tagImg = document.createElement("img");
-		tagImg.className = "panel statusContainer";
-		tagImg.src = "./src/planet.png";
-		container.appendChild(tagImg);
+		this.image = document.createElement("img");
+		this.image.className = "panel statusContainer";
+		this.image.src = "./src/planet.png";
+		container.appendChild(this.image);
 
 		this.destination = document.createElement("div");
 		this.destination.className = "panel statusContainer";
@@ -32,6 +33,12 @@ class destinationPanel {
 	setFaction(index) {
 		this.faction = index;
 		this.update();
+	}
+
+	generateRandomPlanet() {
+		this.image.style = (
+			"filter: hue-rotate(" + (Math.random() * 360)  + "deg" + ");"
+		);
 	}
 
 	update() {

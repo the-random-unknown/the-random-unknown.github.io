@@ -2,7 +2,7 @@
 
 class factionsPanel {
 	factions;
-	factionsArray = ["Kazoni", "Ocamp", "Temný syndikát", "Nomádi v exilu", "Architekti"]; 
+	factionsArray = ["Neznámá", "Kazoni", "Ocamp", "Temný syndikát", "Nomádi v exilu", "Architekti"]; 
 	factionRelations = [50, 100, 50, 50, 20, 80];
 
 	constructor() {

@@ -112,7 +112,7 @@ body {
 }
 
 .outputContainer {
-	height: calc(100% - 128px - 12px);
+	height: calc(100% - 192px - 12px);
 	overflow-y: scroll;
 }
 
@@ -120,7 +120,7 @@ body {
 	margin-top: 12px;
 	display: flex;
 	gap: 8px;
-	height: 128px;
+	height: 192px;
 	flex-direction: row;
 	justify-content: space-between;
 }
@@ -164,7 +164,7 @@ img {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	height: calc(100% - 128px - 12px);
+	height: calc(100% - 192px - 12px);
 	overflow-y: scroll;
 	background-color: #aa000032;
 }
