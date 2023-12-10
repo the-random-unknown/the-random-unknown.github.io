@@ -95,8 +95,8 @@ class inventoryPanel {
 		return this.scrap;
 	}
 
-	getItem(string) {
-		this.items.includes(String(string));
+	hasItem(string) {
+		return this.items.includes(String(string));
 	}
 
 
