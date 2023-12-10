@@ -330,7 +330,7 @@ dark_syndicate_eriset[5] = async function () {
 	});
 }
 
-dark_syndicate_esriet[6] = async function () {
+dark_syndicate_eriset[6] = async function () {
 	await output.write("Rozhodl jsi se ještě jednou jednat se Syndikátem. Tentokrát již odměna bude nižší: +1 palivo a +1 materiál");
 
 	output.createButton("Přijmeš úkol a letíš na Ocamp", dark_syndicate_eriset[4]);
