@@ -190,30 +190,29 @@ kazoni_odplata[0] = async function () {
 	destination.setFaction(1);
 	destination.setStatus(0);
 
-	await output.write("Kazoni ti nezapomněli pomoc, kterou jsi poskytl Ocampům. Poslali proti tobě válečnou loď, kterou jsi u Ocamp již potkal");
+	await output.write("Kazoni ti nezapomněli pomoc, kterou jsi poskytl Ocampům. Poslali proti tobě válečnou loď, kterou jsi u Ocamp již potkal. Nemáš moc možností - pokusíš se uniknout do blízkého oblaku ionizovaného plynu nebo přijmeš výzvu a budeš bojovat? Také můžeš zkusit diplomacii...");
 
-	output.createButton("Pokusíš se uniknout do blízkého oblaku ionizovaného plynu", function () {
+	output.createButton("Oblaku ionizovaného plynu", function () {
 			inventory.addScrap(-1);
 			kazoni_odplata[2]();
 		});
-	output.createButton("Přijmeš výzvu a budeš bojovat " + battle, kazoni_odplata[3]);
+	output.createButton("Boj " + battle, kazoni_odplata[3]);
 	output.createButton("Zkusíš se domluvit", kazoni_odplata[6]);
-	output.createButton("Na prosbu nereaguješ a letíš jinam" + jump, generateRandomEvent);
 };
 
 kazoni_odplata[2] = async function () {
-	await output.write("2)	Skrýváš se v oblaku ionizovaného plynu. Oblak ti poskytuje ochranu, ale zjišťuješ, že poškozuje plášť lodi, přišel jsi o 1 materiál.");
+	await output.write("Skrýváš se v oblaku ionizovaného plynu. Oblak ti poskytuje ochranu, ale zjišťuješ, že poškozuje plášť lodi, přišel jsi o 1 materiál. Zvažuješ své možnosti - můžeš Kazony nečekaně napadnout, můžeš do oblaku plynu vypálit raketu nebo ještě počkáš.");
 
-	output.createButton("Počkáš, až se Kazoni přiblíží, a ze zálohy je napadneš" + battle, kazoni_odplata[4]);
-	output.createButton("Počkáš, až se Kazoni přiblíží, a vypálíš raketu do oblaku plynu", kazoni_odplata[5]);
-	output.createButton("Počkáš a uvidíš, co Kazoni udělají", kazoni_odplata[2]);
+	output.createButton("Boj" + battle, kazoni_odplata[4]);
+	output.createButton("Raketa", kazoni_odplata[5]);
+	output.createButton("Čekáš", kazoni_odplata[2]);
 };
 
 kazoni_odplata[3] = async function () {
 	new Battle(8, 5, async function () {
-		await output.write("Podařilo se ti Kazony porazit.")
+		await output.write("Podařilo se ti Kazony porazit. Stálo tě to jednotku paliva za bojové manévry a poškodil sis karmu pro Kazony")
 
-		output.createButton("Skočit dál (-1 k palivu za bojové manévry, -30% karma pro Kazony)" + jump, function () {
+		output.createButton("Skočit dál" + jump, function () {
 			inventory.addFuel(-1);
 			factions.addRelation(3, -30);
 			generateRandomEvent();
@@ -223,11 +222,11 @@ kazoni_odplata[3] = async function () {
 
 kazoni_odplata[4] = async function () {
 	new Battle(5, 3, async function () {
-		await output.write("Podařilo se ti Kazony porazit.")
+		await output.write("Podařilo se ti Kazony porazit. Cena ale byla docela vysoká - propálil jsi jednotku paliva v bojových manévrech a spotřebuješ 3 jednotky materiálu na opravu. Také sis poškodil karmu pro Kazony.")
 
-		output.createButton("Skočit dál (-1 k palivu za bojové manévry, -3 materiál na opravu, -30% karma pro Kazony)" + jump, function () {
-			if (inventory.getScrap() > 3) output.createButton("-1 palivo za bojové manévry, -3 materiál na opravy", kazoni_odplata[6]);
-			else output.createButton("-1 palivo za bojové manévry, -5 zdravi z nedostatku materiálu na opravy", kazoni_odplata[6]);
+		output.createButton("Skočit dál" + jump, function () {
+			if (inventory.getScrap() > 3) output.createButton("Pokračovat", kazoni_odplata[6]);
+			else output.createButton("Pokračovat", kazoni_odplata[6]);
 	
 			factions.addRelation(3, -30);
 			generateRandomEvent();
@@ -236,13 +235,10 @@ kazoni_odplata[4] = async function () {
 }
 
 kazoni_odplata[5] = async function () {
-	await output.write("Vypálil jsi raketu do oblaku plynu. Prudká exotermická reakce těžce poškodila lodi Kazonů takže již nejsou schopné tě pronásledovat. Bohužel také Tvoje loď utrpěla značné škody (-3 materiál). -20% karma pro Kazony");
+	await output.write("Vypálil jsi raketu do oblaku plynu. Prudká exotermická reakce těžce poškodila lodi Kazonů, takže již nejsou schopní tě pronásledovat. Bohužel také Tvoje loď utrpěla značné škody (-3 materiál). -20% karma pro Kazony");
 
-	output.createButton("Skočit dál (-3 materiál na opravu, -20% karma pro Kazony)" + jump, function () {
-			if (inventory.getScrap() > 3) output.createButton("-3 materiál na opravy", kazoni_odplata[6]);
-			else output.createButton("-5 zdravi z nedostatku materiálu na opravy", kazoni_odplata[6]);
-	
-			factions.addRelation(3, -20);
+	output.createButton("Skočit jinam" + jump, function () {
+			factions.addRelation(1, -20);
 			generateRandomEvent();
 		})
 };
@@ -300,8 +296,8 @@ dark_syndicate_eriset[0] = async function () {
 
 	await output.write("Potkal jsi loď Temného Syndikátu. Žádají tě o schůzku kvůli obchodnímu jednání.");
 
-	output.createButton("Přijmeš schůzku na palubě své lodi", dark_syndicate_eriset[2]);
-	output.createButton("Rozhodneš se se Syndikátem nejednat a odlétáš" + jump, generateRandomEvent);
+	output.createButton("Pozveš je k jednání", dark_syndicate_eriset[2]);
+	output.createButton("Rozhodneš se nejednat a odlétáš" + jump, generateRandomEvent);
 };
 
 dark_syndicate_eriset[2] = async function () {
@@ -330,10 +326,12 @@ dark_syndicate_eriset[4] = async function () {
 
 dark_syndicate_eriset[5] = async function () {
 	new Battle(10, 5, async function () {
-		await output.write("Přemohl jsi Kazony, můžeš přistát na Ocampu");
-		output.createButton("Pokračovat (Karma pro Kazony -20%)", function () {
-			factions.addRelation(1, -20);
-			dark_syndicate_eriset[8]();
+		new Battle(10, 5, async function () {
+			await output.write("Přemohl jsi Kazony, můžeš přistát na Ocampu");
+			output.createButton("Pokračovat (Karma pro Kazony -20%)", function () {
+				factions.addRelation(1, -20);
+				dark_syndicate_eriset[8]();
+			});
 		});
 	});
 }
