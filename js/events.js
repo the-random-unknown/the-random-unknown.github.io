@@ -23,7 +23,7 @@ special_events[0] = async function () {
 	output.createButton("Skočit dál &#10140;", generateRandomEvent);
 }
 
-//============================ Kazoni - 01 - voda ============================
+//============================ (1) Kazoni - 01 - voda ============================
 /*
 Kazoni - 01 - voda
 1)	Při cestě galaxií jsi potkal zastaralou nákladní loď, která tě žádá o pomoc.
@@ -154,7 +154,7 @@ kazoni_voda[7] = async function () {
 	
 }
 
-//============================ Kazoni - 02 - Odplata ============================
+//============================ (2) Kazoni - 02 - Odplata ============================
 /*
 Kazoni - 02 - Odplata - přístupná po Kazon 01
 1)	Kazoni ti nezapomněli pomoc, kterou jsi poskytl Ocampům. Poslali proti tobě 2 válečné lodi stejného typu, jako ta, kterou jsi u Ocamp již potkal.
@@ -243,7 +243,7 @@ kazoni_odplata[5] = async function () {
 		})
 };
 
-//============================ Temný Syndikát - Zrcadlo z Erisetu ============================
+//============================ (3) Temný Syndikát - Zrcadlo z Erisetu ============================
 /*
 Temný Syndikát 01 - artefakt Zrcadlo z Erisetu - přistupný po Kazon 01
 1)	 Potkal jsi loď Temného Syndikátu. Žádají tě o schůzku kvůli obchodnímu jednáni
@@ -406,7 +406,7 @@ dark_syndicate_eriset[12] = async function () {
 	output.createButton("Rovnou půjdeš na přistání na planetě", dark_syndicate_eriset[10]);
 }
 
-//============================ Temný syndikát - odplata ============================
+//============================ (4) Temný syndikát - odplata ============================
 /*
 Temný Syndikát 02 - odplata
 1)	Zastavila tě loď Temného syndikátu. 
@@ -452,7 +452,7 @@ temny_syndikat_odplata[3] = async function () {
 	});
 }
 
-//============================ Nomádi v exilu - duranium ============================
+//============================ (5) Nomádi v exilu - duranium ============================
 /*
 Nomádi v exilu 01 - duranium
 1)	Před sebou vidíte vesmírnou loď s charakteristickými hrby, je ti jasné, že to je loď Nomádů v Exilu. Co chceš udělat?
@@ -497,7 +497,7 @@ nomadi_duranium[3] = async function () {
 		});
 }
 
-//============================ Nomádi v exilu - lov ============================
+//============================ (6) Nomádi v exilu - lov ============================
 /*
 Nomádi v Exilu 02 - Lov
 1)	Dálkové senzory ti ukázaly válečný křižník Temného Syndikátu, jak pronásleduje nákladní loď Nomádů z Exilu. Přidáš se k pronásledování, abys vylepšil karmu a trochu se napakoval, nebo pomůžeš ochránit nákladní loď?
@@ -561,7 +561,7 @@ nomadi_hunt[4] = async function () {
 	});
 }
 
-//============================ Architekti - Nesmírná síla hvězdy ============================
+//============================ (7) Architekti - Nesmírná síla hvězdy ============================
 /*
 Architekti 01 - Nesmírná síla hvězdy
 1)	Na senzorech před sebou vidíš obrovský umělý objekt, který svými rozměry překonává vše, co jsi zatím ve vesmíru viděl - průměr koule je takový, že by se dovnitř vešla celá oběžná dráha Země. Objekt vyzařuje pouze infračervené záření. Zdá se, že jsi narazil na Dysonovu sféru. Chceš ji prozkoumat?
@@ -628,7 +628,7 @@ architects_star_power[6] = async function () {
 	output.createButton("Pokračovat" + jump, generateRandomEvent);
 }
 
-//============================ Architekti - Pyramida smutku ============================
+//============================ (8) Architekti - Pyramida smutku ============================
 /*
 Architekti 02 - Pyramida smutku
 1)	Tísňový signál z povrchu planety je poněkud zvláštní: „Prosíme o pomoc - Pyramida smutku operuje v nestandardním módu a pokud se nepodaří oprava, celá planeta bude neobyvatelná“. Chceš to prozkoumat, nebo se vydáš dál?
