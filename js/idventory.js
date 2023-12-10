@@ -1,14 +1,26 @@
-class idventoryPanel {
-	idventory = document.getElementById("idventory");
+class inventoryPanel {
+	inventory;
+	image_path;
 	
 	health = 100;
 	fuel = 10;
 	credits = 20;
 	scrap = 10;
+	items = [];
 
 	constructor() {
+		const container = document.getElementById("leftContainer");
+		this.image_path = ships[(Math.floor(Math.random() * ships.length))];
+		
 		// pro tyhle funkce jsem asi mel udelat samostatny "namespace" aby byli universalni
+		const tagImg = document.createElement("img");
+		tagImg.className = "panel statusContainer";
+		tagImg.src = this.image_path;
+		container.appendChild(tagImg);
 
+		this.inventory = document.createElement("div");
+		this.inventory.className = "panel statusContainer";
+		container.appendChild(this.inventory);
 	}
 
 	setHealth(number) {
@@ -59,8 +71,16 @@ class idventoryPanel {
 		this.update();
 	}
 
+	addItem(item) {
+		this.items.push(String(item));
+	}
+
 	getHealth() {
 		return this.health;
+	}
+
+	getShip() {
+		return this.image_path;
 	}
 
 	getFuel() {
@@ -75,11 +95,16 @@ class idventoryPanel {
 		return this.scrap;
 	}
 
+	getItem(string) {
+		this.items.includes(String(string));
+	}
+
+
 	// vim ze tyhle uipdate funkce by se daly dat do jedne univerzalni, ale zas jako nekde se ty radky vzit musi
 	update() {
-		this.idventory.innerHTML = "";
-		this.idventory.appendChild(document.createElement("div")).innerHTML = "<b>Inventář</b>";
-		this.idventory.innerHTML += (
+		this.inventory.innerHTML = "";
+		this.inventory.appendChild(document.createElement("div")).innerHTML = "<b>Inventář</b>";
+		this.inventory.innerHTML += (
 			"Zdraví:" + this.health + "%<br>" +
 			"Palivo:" + this.fuel + "<br>" +
 			"Kredity:" + this.credits + "<br>" +
