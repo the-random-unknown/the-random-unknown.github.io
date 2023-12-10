@@ -720,6 +720,9 @@ architects_pyramid_of_sadness[9] = async function () {
 	await output.write("Vypínač zafungoval, všechen smutek je pryč. Navíc se na podlaze objevily fosforeskující šipky, ukazující cestu k východu. Opatrně bereš vejce, ukládáš je do kontejneru a po šipkách opouštíš pyramidu. Cesta ti trvá dlouho, takže u východu z pyramidy už na tebe čekají podivné postavy v okrových hábitech. Jsou to Architekti a děkují ti za záchranu vejce - jejich citlivá nervová soustava jim nedovolila se k vejci přiblížit a chyba ve zpětné vazbě vedla k neustálému zesilování smutečního signálu. Dostáváš zaslouženou odměnu - 5x palivo a 3x materiál, +30% ke karmě pro Architekty, loučíš se a odlétáš ");
 
 	output.createButton("Odlétáš" + jump, generateRandomEvent);
+	inventory.addFuel(5);
+	inventory.addScrap(3);
+	factions.addRelation(4, 30);
 }
 
 //============================ Šablona ============================
