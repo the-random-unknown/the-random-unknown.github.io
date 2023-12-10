@@ -4,8 +4,6 @@ const inventory = new inventoryPanel;
 const factions = new factionsPanel;
 const destination = new destinationPanel;
 const output = new outputController;
-let score = 0;
-let currect_event;
 
 // javascript nema neco jako main() funkci tak jsem si udelel vlastni a volam ji jako "onload" v game.html na <body>
 async function main() {
