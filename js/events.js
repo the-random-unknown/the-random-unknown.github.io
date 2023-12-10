@@ -123,13 +123,13 @@ kazoni_voda[6] = async function () {
 			output.createButton("-2 palivo za bojové manévry, -2 materiál na opravy", kazoni_voda[7]);
 			inventory.addFuel(-2);
 			inventory.addScrap(-2);
-		};
+		}
 		else {
 			output.createButton("-2 palivo za bojové manévry, -20% zdravi z nedostatku materiálu na opravy", kazoni_voda[7]);
 			inventory.addFuel(-2);
 			inventory.addHealth(-20);
-		};
-	});
+		}
+	})
 }
 
 kazoni_voda[7] = async function () {
