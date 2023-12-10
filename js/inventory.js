@@ -45,7 +45,7 @@ class inventoryPanel {
 
 	addHealth(number) {
 		this.health += number;
-		if (this.getHealth() < 0) this.setHealth(0);
+		if (this.getHealth() < 0) gameOver(score);
 		else if (this.getHealth() > 100) this.setHealth(100);
 		this.update();
 	}
@@ -93,6 +93,10 @@ class inventoryPanel {
 
 	getScrap() {
 		return this.scrap;
+	}
+
+	getItem(string) {
+		this.items.includes(String(string));
 	}
 
 
