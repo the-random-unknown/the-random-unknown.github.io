@@ -79,5 +79,15 @@ function isCompleted(event) {
 	return completed.includes(event);
 }
 
-// ඞ Tomáš
+function runEvent(event_index) {
+	output.clearButtons();
+	output.clearOutput();
+	
+	destination.generateRandomPlanet();
+	currect_event = event_index;
+	completed.push(events[event_index]);
+	events[event_index][0]();
+	score++;
+}
 
+// ඞ Tomáš
