@@ -1,4 +1,6 @@
 const characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+let score = 0;
+let current_event;
 
 // Definice funkce používanou pro timing (hlavne pro output.write() funkci)
 function sleep(ms) {
@@ -19,12 +21,12 @@ async function generateRandomEvent() {
 	let new_event = (Math.floor(Math.random() * events.length));
 	
 	// puzivam new_event a while loop abych zabranil opakovani se eventu hned za sebou
-	while (new_event == currect_event) {
+	while (new_event == current_event) {
 		new_event = (Math.floor(Math.random() * events.length));
 	}
 	
 	destination.generateRandomPlanet();
-	currect_event = new_event;
+	current_event = new_event;
 	completed.push(events[new_event]);
 	events[new_event][0]();
 	score++;
@@ -84,10 +86,11 @@ function runEvent(event_index) {
 	output.clearOutput();
 	
 	destination.generateRandomPlanet();
-	currect_event = event_index;
+	current_event = event_index;
 	completed.push(events[event_index]);
 	events[event_index][0]();
 	score++;
 }
 
 // ඞ Tomáš
+
