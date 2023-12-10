@@ -282,62 +282,62 @@ b.	Rovnou půjdeš na přistání na planetě => 10
 99) návrat na hlavní obrazovku
 */
 
-let dark_syndicate_esriset = [];
-events.push(dark_syndicate_esriset);
+let dark_syndicate_eriset = [];
+events.push(dark_syndicate_eriset);
 
-dark_syndicate_esriset[0] = async function () {
+dark_syndicate_eriset[0] = async function () {
 	destination.setName("Planeta " + getRadnomCode());
 	destination.setFaction(1);
 	destination.setStatus(0);
 
 	await output.write("Potkal jsi loď Temného Syndikátu. Žádají tě o schůzku kvůli obchodnímu jednání.");
 
-	output.createButton("Přijmeš schůzku na palubě své lodi", dark_syndicate_esriset[2]);
+	output.createButton("Přijmeš schůzku na palubě své lodi", dark_syndicate_eriset[2]);
 	output.createButton("Rozhodneš se se Syndikátem nejednat a odlétáš" + jump, generateRandomEvent);
 };
 
-dark_syndicate_esriset[2] = async function () {
-	await output.write("Zástupce Syndikátu ti připomene setkání s Ocampy - na jejich planetě se nachází vzácný artefakt Zrcadlo z Erisetu, které prý má schopnost nahlédnout do budoucnosti (kromě odpovědi na obligátní otázku „Zrcadlo, zrcadlo, kdo je na světě nejkrásnější?“). Protože jsi se s Ocampy již potkal, Syndikát se rozhodl tě pro tuto misi využít. Odměna za úspěch bude +5 materiál, +3 palivo, +20% karma se Syndikátem");
+dark_syndicate_eriset[2] = async function () {
+	await output.write("Zástupce Syndikátu ti připomene setkání s Ocampy - na jejich planetě se nachází vzácný artefakt Zrcadlo z Erisetu, které prý má schopnost nahlédnout do budoucnosti (kromě odpovědi na obligátní otázku „Zrcadlo, zrcadlo, kdo je na světě nejkrásnější?“). Protože jsi se s Ocampy již potkal, Syndikát se rozhodl tě pro tuto misi využít. Odměna za úspěch bude +5 materiál, +3 palivo, +20% karma se Syndikátem. Zároveň Syndikát nabízí jednání s Kazony na téma volného průletu na Ocamp.");
 
-	output.createButton("Přijmeš úkol a letíš na Ocamp", dark_syndicate_esriset[4]);
-	output.createButton("Nechceš letět na Ocamp, protože Kazoni tě zrovna nemilují; požaduješ ochranu", dark_syndicate_esriset[4]);
-	output.createButton("Rovnou odmítneš úkol", dark_syndicate_esriset[3]);
+	output.createButton("Přijmeš úkol a letíš na Ocamp", dark_syndicate_eriset[4]);
+	output.createButton("Požaduješ jednání s Kazony o ochraně", dark_syndicate_eriset[4]);
+	output.createButton("Rovnou odmítneš úkol", dark_syndicate_eriset[3]);
 };
 
-dark_syndicate_esriset[3] = async function () {
+dark_syndicate_eriset[3] = async function () {
 	await output.write("Rozloučíte se a odlétáš. Než ztratíš loď Syndikátu z dohledu, všimneš si dvou kazonských lodí, které ti přehrazují cestu.");
 
-	output.createButton("Pustíš se do boje s Kazony" + battle, dark_syndicate_esriset[5]);
-	output.createButton("Otáčíš loď a vracíš se k lodi Temného syndikátu", dark_syndicate_esriset[6]);
-	output.createButton("Zkusíš uniknout Kazonům", dark_syndicate_esriset[7]);
+	output.createButton("Pustíš se do boje s Kazony" + battle, dark_syndicate_eriset[5]);
+	output.createButton("Otáčíš loď a vracíš se k lodi Temného syndikátu", dark_syndicate_eriset[6]);
+	output.createButton("Zkusíš uniknout Kazonům", dark_syndicate_eriset[7]);
 };
 
-dark_syndicate_esriset[4] = async function () {
+dark_syndicate_eriset[4] = async function () {
 	await output.write("Na orbitě Ocampu hlídkuje loď Kazonů. Dojde ti, že se asi jen tak na povrch nedostaneš a rozhodně bude problém artefakt odvézt. ");
 
-	output.createButton("Zavoláš Kazony a zkusíš je přesvědčit, aby tě na planetu pustili", dark_syndicate_esriset[8]);
-	output.createButton("Zaútočíš na Kazony a spolehneš se na moment překvapení" + battle, dark_syndicate_esriset[9])
-	output.createButton("Rovnou půjdeš na přistání na planetě", dark_syndicate_esriset[10])
+	output.createButton("Zavoláš Kazony a zkusíš je přesvědčit, aby tě na planetu pustili", dark_syndicate_eriset[8]);
+	output.createButton("Zaútočíš na Kazony a spolehneš se na moment překvapení" + battle, dark_syndicate_eriset[9])
+	output.createButton("Rovnou půjdeš na přistání na planetě", dark_syndicate_eriset[10])
 }
 
-dark_syndicate_esriset[5] = async function () {
+dark_syndicate_eriset[5] = async function () {
 	new Battle(10, 5, async function () {
 		await output.write("Přemohl jsi Kazony, můžeš přistát na Ocampu");
 		output.createButton("Pokračovat (Karma pro Kazony -20%)", function () {
 			factions.addRelation(1, -20);
-			dark_syndicate_esriset[8]();
+			dark_syndicate_eriset[8]();
 		});
 	});
 }
 
-dark_syndicate_esriset[6] = async function () {
+dark_syndicate_esriet[6] = async function () {
 	await output.write("Rozhodl jsi se ještě jednou jednat se Syndikátem. Tentokrát již odměna bude nižší: +1 palivo a +1 materiál");
 
-	output.createButton("Přijmeš úkol a letíš na Ocamp", dark_syndicate_esriset[4]);
-	output.createButton("Nechceš letět na Ocamp, protože Kazoni tě zrovna nemilují; požaduješ ochranu", dark_syndicate_esriset[11])
+	output.createButton("Přijmeš úkol a letíš na Ocamp", dark_syndicate_eriset[4]);
+	output.createButton("Nechceš letět na Ocamp, protože Kazoni tě zrovna nemilují; požaduješ ochranu", dark_syndicate_eriset[11])
 }
 
-dark_syndicate_esriset[7] = async function () {
+dark_syndicate_eriset[7] = async function () {
 	await output.write("Únik se podařil, ale nemáš žádný zisk: -1 palivo a -1 materiál");
 
 	output.createButton("Pokračovat (Karma pro Kazony -20%)" + jump, function () {
@@ -347,7 +347,7 @@ dark_syndicate_esriset[7] = async function () {
 		});
 }
 
-dark_syndicate_esriset[8] = async function () {
+dark_syndicate_eriset[8] = async function () {
 	await output.write("Přistál jsi na planetě a díky dobrým vztahům s Ocampy jsi našel Zrcadlo z Erisetu. Ocampové požadují polovinu tvých zásob vody.");
 
 	output.createButton("Přijmeš nabídku a odvážíš Zrcadlo s Erisetu Temnému Syndikátu: zisk podle dohody. Karma +10% Temný Syndikát, +10% Ocampové" + jump, function () {
@@ -365,17 +365,17 @@ dark_syndicate_esriset[8] = async function () {
 		});
 }
 
-dark_syndicate_esriset[9] = async function () {
+dark_syndicate_eriset[9] = async function () {
 	new Battle(7, 4, async function () {
 		await output.write("Přemohl jsi Kazony, můžeš přistát na Ocampu");
 		output.createButton("Pokračovat na planetu", function () {
 			factions.addRelation(1, -20);
-			dark_syndicate_esriset[8]();
+			dark_syndicate_eriset[8]();
 		});
 	});
 }
 
-dark_syndicate_esriset[10] = async function () {
+dark_syndicate_eriset[10] = async function () {
 	await output.write("Zvolil jsi velmi riskantní manévr. Kazoni tě pronásledují do atmosféry, je ti jasné, že po přistání tě zničí. Volíš ústup a mizíš ze sektoru: -20% karma pro Kazony, -10% karma pro Syndikát, -1 palivo, -1 materiál.");
 
 	output.createButton("Pokračovat" + jump, function () {
@@ -387,17 +387,17 @@ dark_syndicate_esriset[10] = async function () {
 		});
 }
 
-dark_syndicate_esriset[11] = async function () {
+dark_syndicate_eriset[11] = async function () {
 	await output.write("Dohaduješ se Syndikátem ochranu pře Kazony. Syndikát ti vyhovuje, zaručuje ti volný přístup na planetu.");
 
-	output.createButton("Pokračovat", dark_syndicate_esriset[8]);
+	output.createButton("Pokračovat", dark_syndicate_eriset[8]);
 }
 
-dark_syndicate_esriset[12] = async function () {
+dark_syndicate_eriset[12] = async function () {
 	await output.write("Vyjednávání nepomohlo.");
 
-	output.createButton("Zaútočíš na Kazony a spolehneš se na moment překvapení" + battle, dark_syndicate_esriset[9]);
-	output.createButton("Rovnou půjdeš na přistání na planetě", dark_syndicate_esriset[10]);
+	output.createButton("Zaútočíš na Kazony a spolehneš se na moment překvapení" + battle, dark_syndicate_eriset[9]);
+	output.createButton("Rovnou půjdeš na přistání na planetě", dark_syndicate_eriset[10]);
 }
 
 //============================ Temný syndikát - odplata ============================
@@ -422,7 +422,7 @@ temny_syndikat_odplata[0] = async function () {
 	await output.write("Zastavila tě loď Temného syndikátu.");
 
 	output.createButton("Máš na palubě ukradené Zrcadlo z Erisetu", temny_syndikat_odplata[2]);
-	output.createButton("Nemáš na palubě Zrcadlo z Erisetu", dark_syndicate_esriset[0]);
+	output.createButton("Nemáš na palubě Zrcadlo z Erisetu", dark_syndicate_eriset[0]);
 }
 
 temny_syndikat_odplata[2] = async function () {
