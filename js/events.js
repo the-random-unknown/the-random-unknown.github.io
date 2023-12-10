@@ -61,7 +61,7 @@ kazoni_voda[0] = async function () {
 	destination.setFaction(1);
 	destination.setStatus(0);
 
-	await output.write("Při cestě galaxií jsi potkal zastaralou nákladní loď, která tě žádá o pomoc. Poznáváš výsostné znaky Ocampů");
+	await output.write("Při cestě galaxií jsi potkal zastaralou nákladní loď, která tě žádá o pomoc. Poznáváš výsostné znaky Ocampů.");
 
 	output.createButton("Rozhodneš se pomoci", kazoni_voda[2]);
 	output.createButton("Rozhodneš se loď zničit" + battle, kazoni_voda[3]);
@@ -439,9 +439,9 @@ temny_syndikat_odplata[0] = async function () {
 }
 
 temny_syndikat_odplata[2] = async function () {
-	await output.write("Syndikát požaduje vydání Zrcadla, zaplatí za něj 3 paliva a 3 materiály");
+	await output.write("Syndikát požaduje vydání Zrcadla, zaplatí za něj 3 paliva a 3 materiály.");
 
-	output.createButton("Vydáš zrcadlo, +10% karma pro Temný syndikát, +3 paliva, +3 materiál" + jump, function () {
+	output.createButton("Vydáš zrcadlo" + jump, function () {
 			inventory.addFuel(3);
 			inventory.addScrap(3);
 			factions.addRelation(1, 10);
@@ -453,9 +453,8 @@ temny_syndikat_odplata[2] = async function () {
 
 temny_syndikat_odplata[3] = async function () {
 	new Battle(9, 4, async function () {
-		await output.write("");
 		factions.addRelation(1, -20);
-		output.createButton("", generateRandomEvent);
+		output.createButton("Pokračovat" + jump, generateRandomEvent);
 	});
 }
 
@@ -546,11 +545,12 @@ nomadi_hunt[2] = async function () {
 
 nomadi_hunt[3] = async function () {
 	new Battle(8, 6, async function () {
-		await output.write("Zvolil jsi boj s lodí Temného Syndikátu, abys ochránil nákladní loď. Byla slabší, ale o mnoho větší než ty. Dobrou strategií v bitvě jsi je porazil a tak ti Nomádi jako projev vděčnosti věnovali 3 jednotky paliva a 2 jednotky materiálu.");
+		await output.write("Zvolil jsi boj s lodí Temného Syndikátu, abys ochránil nákladní loď Nomádů. Křižník Syndikátu byl slabší, ale o mnoho větší než ty. Dobrou strategií v bitvě jsi je porazil a tak ti Nomádi jako projev vděčnosti věnovali 3 jednotky paliva a 2 jednotky materiálu.");
 		output.createButton("Pokračovat" + jump, function () {
 			inventory.addFuel(3);
 			inventory.addScrap(2);
 			factions.addRelation(4, 10); // Nomádi
+			factions.addRelation(3, -30); // Syndikát
 			generateRandomEvent();
 		});
 	});
@@ -563,6 +563,7 @@ nomadi_hunt[4] = async function () {
 			inventory.addFuel(1);
 			inventory.addScrap(1);
 			factions.addRelation(4, -20); // Nomádi
+			factions.addRelation(3, -30); // Syndikát
 			generateRandomEvent();
 		});
 	});
