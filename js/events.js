@@ -578,7 +578,7 @@ architects_star_power[0] = async function () {
 }
 
 architects_star_power[2] = async function () {
-	await output.write("Při přiblížení ke kouli tvou oď zachytil nějaký paprsek energie, který vás přitahuje ke kouli. Vidíš, že se před vámi otevírá brána do nitra sféry.");
+	await output.write("Při přiblížení ke kouli tvou loď zachytil nějaký paprsek energie, který vás přitahuje ještě blíž. Vidíš, že se před vámi otevírá brána do nitra sféry.");
 
 	output.createButton("Zkusíš odletět", architects_star_power[3]);
 	output.createButton("Necháš se vtáhnout do sféry", architects_star_power[4]);
@@ -598,12 +598,12 @@ architects_star_power[4] = async function () {
 }
 
 architects_star_power[5] = async function () {
-	await output.write("Malý risk se vyplatil, získal jsi malé množství paliva (2 jednotky) a 4 jednotky materiálu. Také nějaký zdravotnický materiál (+1 ke zdraví)");
+	await output.write("Malý risk se vyplatil, získal jsi malé množství paliva (2 jednotky) a 4 jednotky materiálu. Také nějaký zdravotnický materiál (+20% ke zdraví)");
 
 	output.createButton("Pokračovat" + jump, function () {
 			inventory.addFuel(2);
 			inventory.addScrap(4);
-			factions.addHealth(1);
+			inventory.addHealth(20);
 			generateRandomEvent();
 		});
 }
