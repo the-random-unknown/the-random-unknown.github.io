@@ -407,10 +407,10 @@ dark_syndicate_eriset[11] = async function () {
 }
 
 dark_syndicate_eriset[12] = async function () {
-	await output.write("Vyjednávání nepomohlo.");
+	await output.write("Vyjednávání nepomohlo. Můžeš zkusit boj s Kazony a spolehnout se na moment překvapení, nebo porušit blokádu a pokusit se o nepovollené přistání na planetě.");
 
-	output.createButton("Zaútočíš na Kazony a spolehneš se na moment překvapení" + battle, dark_syndicate_eriset[9]);
-	output.createButton("Rovnou půjdeš na přistání na planetě", dark_syndicate_eriset[10]);
+	output.createButton("Zaútočíš na Kazony" + battle, dark_syndicate_eriset[9]);
+	output.createButton("Zkusíš přistát", dark_syndicate_eriset[10]);
 }
 
 //============================ (4) Temný syndikát - odplata ============================
