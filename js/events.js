@@ -71,7 +71,7 @@ kazoni_voda[0] = async function () {
 kazoni_voda[2] = async function () {
 	await output.write("Loď skutečně patří Ocampům, kteří žijí na své planetě Ocampa pod nadvládou Kazonů, v otroctví. Na planetě je kritický nedostatek vody, proto má nákladní loď za úkol najít asteroid se zásobou ledu, která po vytěžení přiveze na Ocampu. Kapitán a zároveň jediný člen posádky lodi ti přislíbí velkou odměnu v podobě paliva a surovin, kterých mají na planetě přebytek, pokud jim pomůžeš nalézt a dovézt na planetu vodu.");
 
-	output.createButton("Pomůžeš nalézt vhodný asteroid s vodou", kazoni_voda[4]);
+	output.createButton("Pomůžeš nalézt asteroid s ledem", kazoni_voda[4]);
 	output.createButton("Nezajímá tě to, odlétáš" + jump, generateRandomEvent);
 	output.createButton("Rozhodneš se nákladní loď obsadit a vyrabovat" + battle, kazoni_voda[5]);
 };
@@ -92,14 +92,14 @@ kazoni_voda[4] = async function () {
 	await output.write("Podařilo se ti najít vhodný asteroid, vytěžíte led a vracíte se na Ocamp. Na oběžné dráze hlídkuje loď Kazonů, vypadá trochu slabší, než ty. Můžes s Kazony bojovat, misi ukončit nebo se s Kazony spojit a předat jim loď Ocampů.");
 
 	output.createButton("Zaútočíš na Kazony" + battle, kazoni_voda[6]);
-	output.createButton("Letíš jinam", function () {
+	output.createButton("Letíš jinam" + jump, function () {
 		inventory.addFuel(-2);
 		factions.addRelation(3, -10);
 		factions.addRelation(2, 10);
 		generateRandomEvent();
 	})
 
-	output.createButton("Předáš loď Ocampů Kazonům", function () {	
+	output.createButton("Předáš loď Ocampů Kazonům" + jump, function () {	
 		inventory.addFuel(-1);
 		factions.addRelation(2, -30);
 		factions.addRelation(1, 20);
@@ -210,7 +210,7 @@ kazoni_odplata[2] = async function () {
 
 kazoni_odplata[3] = async function () {
 	new Battle(8, 5, async function () {
-		await output.write("Podařilo se ti Kazony porazit. Stálo tě to jednotku paliva za bojové manévry a poškodil sis karmu pro Kazony")
+		await output.write("Podařilo se ti Kazony porazit. Stálo tě to jednotku paliva za bojové manévry a poškodil sis karmu pro Kazony.")
 
 		output.createButton("Skočit dál" + jump, function () {
 			inventory.addFuel(-1);
@@ -318,23 +318,23 @@ dark_syndicate_eriset[3] = async function () {
 	await output.write("Rozloučíte se a odlétáš. Než ztratíš loď Syndikátu z dohledu, všimneš si dvou kazonských lodí, které ti přehrazují cestu.");
 
 	output.createButton("Pustíš se do boje s Kazony" + battle, dark_syndicate_eriset[5]);
-	output.createButton("Otáčíš loď a vracíš se k lodi Temného syndikátu", dark_syndicate_eriset[6]);
+	output.createButton("Otáčíš loď a vracíš se", dark_syndicate_eriset[6]);
 	output.createButton("Zkusíš uniknout Kazonům", dark_syndicate_eriset[7]);
 };
 
 dark_syndicate_eriset[4] = async function () {
-	await output.write("Na orbitě Ocampu hlídkuje loď Kazonů. Dojde ti, že se asi jen tak na povrch nedostaneš a rozhodně bude problém artefakt odvézt. ");
+	await output.write("Na orbitě Ocampu hlídkuje loď Kazonů. Dojde ti, že se asi jen tak na povrch nedostaneš a rozhodně bude problém artefakt odvézt. Co si vybereš - Bboj s Kazony, vyjednávání o volném přístupu na planetu nebo se nebudeš ptát a zkusíš rovnou přistát?");
 
-	output.createButton("Zavoláš Kazony a zkusíš je přesvědčit, aby tě na planetu pustili", dark_syndicate_eriset[8]);
-	output.createButton("Zaútočíš na Kazony a spolehneš se na moment překvapení" + battle, dark_syndicate_eriset[9])
-	output.createButton("Rovnou půjdeš na přistání na planetě", dark_syndicate_eriset[10])
+	output.createButton("Budeš vyjednávat", dark_syndicate_eriset[8]);
+	output.createButton("Bude boj" + battle, dark_syndicate_eriset[9])
+	output.createButton("Jdeš na přistání", dark_syndicate_eriset[10])
 }
 
 dark_syndicate_eriset[5] = async function () {
 	new Battle(10, 5, async function () {
 		new Battle(10, 5, async function () {
-			await output.write("Přemohl jsi Kazony, můžeš přistát na Ocampu");
-			output.createButton("Pokračovat (Karma pro Kazony -20%)", function () {
+			await output.write("Přemohl jsi Kazony, můžeš přistát na Ocampu. Karma pro Kazony jde dolů.");
+			output.createButton("Pokračovat", function () {
 				factions.addRelation(1, -20);
 				dark_syndicate_eriset[8]();
 			});
@@ -343,16 +343,16 @@ dark_syndicate_eriset[5] = async function () {
 }
 
 dark_syndicate_eriset[6] = async function () {
-	await output.write("Rozhodl jsi se ještě jednou jednat se Syndikátem. Tentokrát již odměna bude nižší: +1 palivo a +1 materiál");
+	await output.write("Rozhodl jsi se ještě jednou jednat se Syndikátem. Tentokrát již odměna bude nižší: +1 palivo a +1 materiál. Zkusíš vyjednávat o ochraně před Kazony?");
 
 	output.createButton("Přijmeš úkol a letíš na Ocamp", dark_syndicate_eriset[4]);
-	output.createButton("Nechceš letět na Ocamp, protože Kazoni tě zrovna nemilují; požaduješ ochranu", dark_syndicate_eriset[11])
+	output.createButton("Požaduješ ochranu", dark_syndicate_eriset[11])
 }
 
 dark_syndicate_eriset[7] = async function () {
-	await output.write("Únik se podařil, ale nemáš žádný zisk: -1 palivo a -1 materiál");
+	await output.write("Únik se podařil, ale nemáš žádný zisk: -1 palivo a -1 materiál.");
 
-	output.createButton("Pokračovat (Karma pro Kazony -20%)" + jump, function () {
+	output.createButton("Pokračovat" + jump, function () {
 			inventory.addFuel(-1);
 			inventory.addScrap(-1);
 			generateRandomEvent();
@@ -360,16 +360,16 @@ dark_syndicate_eriset[7] = async function () {
 }
 
 dark_syndicate_eriset[8] = async function () {
-	await output.write("Přistál jsi na planetě a díky dobrým vztahům s Ocampy jsi našel Zrcadlo z Erisetu. Ocampové požadují polovinu tvých zásob vody.");
+	await output.write("Přistál jsi na planetě a díky dobrým vztahům s Ocampy jsi našel Zrcadlo z Erisetu. Ocampové požadují polovinu tvých zásob vody. To pro tebe není problém, jen cestou na další misi budeš muste trochu šetřit a přijdeš o nějaké zdraví. Zrcadlo z Erisetu se ti líbí, tak zvažuješ, co se stane, když ho Syndikátu nepředáš - rozhodně to vaše vztahy poškodí.");
 
-	output.createButton("Přijmeš nabídku a odvážíš Zrcadlo s Erisetu Temnému Syndikátu: zisk podle dohody. Karma +10% Temný Syndikát, +10% Ocampové" + jump, function () {
+	output.createButton("Odevzdáš Zrcadlo Syndikátu" + jump, function () {
 			inventory.addFuel(3);
 			inventory.addScrap(5);
 			factions.addRelation(1, 10);
 			factions.addRelation(3, 10);
 			generateRandomEvent();
 		});
-	output.createButton("Přijmeš nabídku, ale Zrcadlo nepředáš Temnému syndikátu, necháš si ho: karma Temný syndikát -20%, karma Ocampove +10%, žádný zisk, -1 palivo" + jump, function () {
+	output.createButton("Zrcadlo si necháš" + jump, function () {
 			inventory.addFuel(-1);
 			factions.addRelation(1, -20);
 			factions.addRelation(3, 10);
@@ -531,9 +531,9 @@ events.push(nomadi_hunt);
 nomadi_hunt[0] = async function () {
 	await output.write("Dálkové senzory ti ukázaly válečný křižník Temného Syndikátu, jak pronásleduje nákladní loď Nomádů z Exilu. Přidáš se k pronásledování, abys vylepšil karmu a trochu se napakoval, nebo pomůžeš ochránit nákladní loď?");
 
-	output.createButton("Zahájíš palbu na nákladní loď Nomádů" + battle, nomadi_hunt[2]);
-	output.createButton("Zahájíš palbu na křižník Temného Syndikátu" + battle, nomadi_hunt[3]);
-	output.createButton("Nebudeš se do toho míchat" + jump, generateRandomEvent);
+	output.createButton("Napadneš loď Nomádů" + battle, nomadi_hunt[2]);
+	output.createButton("Napadneš křižník Syndikátu" + battle, nomadi_hunt[3]);
+	output.createButton("Nebudeš se do toho plést" + jump, generateRandomEvent);
 }
 
 nomadi_hunt[2] = async function () {
@@ -545,11 +545,11 @@ nomadi_hunt[2] = async function () {
 
 nomadi_hunt[3] = async function () {
 	new Battle(8, 6, async function () {
-		await output.write("Zvolil jsi boj s lodí Temného Syndikátu, abys ochránil nákladní loď. Má o 20% méně síly, než ty, ale o 20% více životů.");
-		output.createButton("Nomádi ti jako projev vděčnosti věnovali 3 paliva a 2 materiály, +10% karma Nomádi" + jump, function () {
+		await output.write("Zvolil jsi boj s lodí Temného Syndikátu, abys ochránil nákladní loď. Byla slabší, ale o mnoho větší než ty. Dobrou strategií v bitvě jsi je porazil a tak ti Nomádi jako projev vděčnosti věnovali 3 jednotky paliva a 2 jednotky materiálu.");
+		output.createButton("Pokračovat" + jump, function () {
 			inventory.addFuel(3);
 			inventory.addScrap(2);
-			factions.addRelation(1, 10); // Nomádi
+			factions.addRelation(4, 10); // Nomádi
 			generateRandomEvent();
 		});
 	});
@@ -557,11 +557,11 @@ nomadi_hunt[3] = async function () {
 
 nomadi_hunt[4] = async function () {
 	new Battle(8, 6, async function () {
-		await output.write("Zvolil jsi boj s lodí Temného Syndikátu, abys měl loď Nomádů jen pro sebe. Má o 20% méně síly, než ty, ale o 20% více životů");
-		output.createButton("Máš pro sebe celou loď Nomádů. Posádka se vzdala, ale poškodil sis karmu pro Nomády o -20%. Získal jsi 1 palivo a 1 materiál" + jump, function () {
+		await output.write("Zvolil jsi boj s lodí Temného Syndikátu, abys měl loď Nomádů jen pro sebe. Zvítězil jsi v dlouhé bitvě a tak máš pro sebe celou loď Nomádů. Posádka se vzdala, ale poškodil sis karmu pro Nomády. Získal jsi 1 jednotku paliva a 1 jednotku materiálu.");
+		output.createButton("Pokračovat" + jump, function () {
 			inventory.addFuel(1);
 			inventory.addScrap(1);
-			factions.addRelation(1, -20); // Nomádi
+			factions.addRelation(4, -20); // Nomádi
 			generateRandomEvent();
 		});
 	});
