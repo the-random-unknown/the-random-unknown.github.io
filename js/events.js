@@ -150,7 +150,7 @@ kazoni_voda[7] = async function () {
 		inventory.addScrap(5);
 		generateRandomEvent();
 	})
-	inventory.addItem('kazoni_voda_completed');
+	inventory.addItem("kazoni_voda_completed");
 	
 }
 
@@ -180,7 +180,7 @@ let kazoni_odplata = [];
 events.push(kazoni_odplata);
 
 kazoni_odplata[0] = async function () {
-	if(!inventory.getItem('kazoni_voda_completed')){
+	if(!inventory.getItem("kazoni_voda_completed")){
 		generateRandomEvent();
 		return;
 	};
