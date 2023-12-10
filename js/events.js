@@ -3,6 +3,7 @@
 // vzhledem k tomu ze nektere eventy mohou byt pristupne az po jinych
 // struktura je celkove o dost slozitejsi a je postupne zabudovana a arrayich
 // taky jsem se to pokusil rozdelit pomoci komentatu aby se v tom dalo lepe orientovat
+//  ["Kazoni", "Ocamp", "Temný syndikát", "Nomádi v exilu", "Architekti"]
 
 let events = [];
 let jump = " &#10140";
@@ -93,14 +94,14 @@ kazoni_voda[4] = async function () {
 	output.createButton("Zaútočíš na Kazony" + battle, kazoni_voda[6]);
 	output.createButton("Za boj ti zisk nestojí. (-2 k palivu, -10 karma pro Ocamp, +10% karma pro Kazony)", function () {
 		inventory.addFuel(-2);
-		factions.addRelation(3, -10);
-		factions.addRelation(2, 10);
+		factions.addRelation(2, -10);
+		factions.addRelation(1, 10);
 		generateRandomEvent();
 	})
 
 	output.createButton("Spojíš se s Kazony a loď Ocampů jim předáš (-1 k palivu, +30% karma pro Kazony)", function () {	
 		inventory.addFuel(-1);
-		factions.addRelation(2, 30);
+		factions.addRelation(1, 30);
 		generateRandomEvent();
 	})
 }
@@ -109,7 +110,7 @@ kazoni_voda[5] = async function () {
 	new Battle(2, 2, async function () {
 		await output.write("Kapitán napadení nečekal, podařilo se ti ho přemoci. Bohužel na lodi není nic, co bys mohl použít.");
 		output.createButton("Pokračovat (Karma pro Ocamp -30%)", function () {
-			factions.addRelation(3, -30);
+			factions.addRelation(2, -30);
 			generateRandomEvent();
 		});
 	});
@@ -179,7 +180,7 @@ kazoni_odplata[3] = async function () {
 
 		output.createButton("Skočit dál (-1 k palivu za bojové manévry, -30% karma pro Kazony)" + jump, function () {
 			inventory.addFuel(-1);
-			factions.addRelation(3, -30);
+			factions.addRelation(1, -30);
 			generateRandomEvent();
 		})
 	});
@@ -193,7 +194,7 @@ kazoni_odplata[4] = async function () {
 			if (inventory.getScrap() > 3) output.createButton("-1 palivo za bojové manévry, -3 materiál na opravy", kazoni_odplata[6]);
 			else output.createButton("-1 palivo za bojové manévry, -5 zdravi z nedostatku materiálu na opravy", kazoni_odplata[6]);
 	
-			factions.addRelation(3, -30);
+			factions.addRelation(1, -30);
 			generateRandomEvent();
 		})
 	});
@@ -206,7 +207,7 @@ kazoni_odplata[5] = async function () {
 			if (inventory.getScrap() > 3) output.createButton("-3 materiál na opravy", kazoni_odplata[6]);
 			else output.createButton("-5 zdravi z nedostatku materiálu na opravy", kazoni_odplata[6]);
 	
-			factions.addRelation(3, -20);
+			factions.addRelation(1, -20);
 			generateRandomEvent();
 		})
 };
@@ -315,6 +316,7 @@ dark_syndicate_esriset[7] = async function () {
 	output.createButton("Pokračovat (Karma pro Kazony -20%)" + jump, function () {
 			factions.addFuel(-1);
 			factions.addScrap(-1);
+			factions.addRelation(1, -20);
 			generateRandomEvent();
 		});
 }
@@ -325,14 +327,14 @@ dark_syndicate_esriset[8] = async function () {
 	output.createButton("Přijmeš nabídku a odvážíš Zrcadlo s Erisetu Temnému Syndikátu: zisk podle dohody. Karma +10% Temný Syndikát, +10% Ocampové" + jump, function () {
 			factions.addFuel(3);
 			factions.addScrap(5);
-			factions.addRelation(1, 10);
 			factions.addRelation(3, 10);
+			factions.addRelation(2, 10);
 			generateRandomEvent();
 		});
 	output.createButton("Přijmeš nabídku, ale Zrcadlo nepředáš Temnému syndikátu, necháš si ho: karma Temný syndikát -20%, karma Ocampove +10%, žádný zisk, -1 palivo" + jump, function () {
 			factions.addFuel(-1);
-			factions.addRelation(1, -20);
-			factions.addRelation(3, 10);
+			factions.addRelation(3, -20);
+			factions.addRelation(2, 10);
 			generateRandomEvent();
 		});
 }
@@ -403,7 +405,7 @@ temny_syndikat_odplata[2] = async function () {
 	output.createButton("Vydáš zrcadlo, +10% karma pro Temný syndikát, +3 paliva, +3 materiál" + jump, function () {
 			factions.addFuel(3);
 			factions.addScrap(3);
-			factions.addRelation(1, 10);
+			factions.addRelation(3, 10);
 			generateRandomEvent();
 		});
 	output.createButton("Rozhodneš se pro boj, loď Syndikáti je skoro stejně silná, jako tvoje" + battle, temny_syndikat_odplata[3]);
@@ -413,7 +415,7 @@ temny_syndikat_odplata[2] = async function () {
 temny_syndikat_odplata[3] = async function () {
 	new Battle(9, 4, async function () {
 		await output.write("");
-		factions.addRelation(1, -20);
+		factions.addRelation(3, -20);
 		output.createButton("", generateRandomEvent);
 	});
 }
@@ -446,7 +448,7 @@ nomadi_duranium[2] = async function () {
 
 	output.createButton("Spustíš se na planetu", nomadi_duranium[3]);
 	output.createButton("Odmítneš spolupráci:" + jump, function () {
-			factions.addRelation(1, -10);
+			factions.addRelation(4, -10);
 			generateRandomEvent();
 		});
 }
@@ -457,8 +459,8 @@ nomadi_duranium[3] = async function () {
 	output.createButton("Pokračovat" + jump, function () {
 			factions.addFuel(3);
 			factions.addScrap(2);	
-			factions.addRelation(1, -20); // Syndikát
-			factions.addRelation(3, 10); // Nomádi
+			factions.addRelation(3, -20); // Syndikát
+			factions.addRelation(4, 10); // Nomádi
 			generateRandomEvent();
 		});
 }
@@ -509,7 +511,7 @@ nomadi_hunt[3] = async function () {
 		output.createButton("Nomádi ti jako projev vděčnosti věnovali 3 paliva a 2 materiály, +10% karma Nomádi" + jump, function () {
 			factions.addFuel(3);
 			factions.addScrap(2);
-			factions.addRelation(1, 10); // Nomádi
+			factions.addRelation(4, 10); // Nomádi
 			generateRandomEvent();
 		});
 	});
@@ -521,7 +523,7 @@ nomadi_hunt[4] = async function () {
 		output.createButton("Máš pro sebe celou loď Nomádů. Posádka se vzdala, ale poškodil sis karmu pro Nomády o -20%. Získal jsi 1 palivo a 1 materiál" + jump, function () {
 			factions.addFuel(1);
 			factions.addScrap(1);
-			factions.addRelation(1, -20); // Nomádi
+			factions.addRelation(4, -20); // Nomádi
 			generateRandomEvent();
 		});
 	});
@@ -679,37 +681,24 @@ architects_pyramid_of_sadness[7] = async function () {
 architects_pyramid_of_sadness[8] = async function () {
 	await output.write("Po zásahu laserpalem vejce explodovalo, odmrštěné zbytky artefaktu tě mírně zranily (-1 ke zdraví). Pocit smutku se vytratil, ale přihlásil se strach, jak teď najdeš cestu bludištěm ven z pyramidy. Ještě štěstí, že sis dělal záznam. Přesto ti cesta ven trvá mnohem déle, než bys čekal. U vchodu na tebe čekají podivné postavy v hábitech okrové barvy. Jsou to Architekti a děkují ti za záchranu – jejich citlivá nervová soustava jim nedovolila se k vejci přiblížit. Litují, že je vejce zničené, tak tvá odměna je jen symbolická – 2x palivo a 1x materiál.");
 
-	output.createButton("Odlétáš" + jump, generateRandomEvent);
+	output.createButton("Pokračovat" + jump, function () {
+			factions.addFuel(2);
+			factions.addScrap(1);
+			generateRandomEvent();
+		});
 }
 
 architects_pyramid_of_sadness[9] = async function () {
 	await output.write("Vypínač zafungoval, všechen smutek je pryč. Navíc se na podlaze objevily fosforeskující šipky, ukazující cestu k východu. Opatrně bereš vejce, ukládáš je do kontejneru a po šipkách opouštíš pyramidu. Cesta ti trvá dlouho, takže u východu z pyramidy už na tebe čekají podivné postavy v okrových hábitech. Jsou to Architekti a děkují ti za záchranu vejce – jejich citlivá nervová soustava jim nedovolila se k vejci přiblížit a chyba ve zpětné vazbě vedla k neustálému zesilování smutečního signálu. Dostáváš zaslouženou odměnu – 5x palivo a 3x materiál, +30% ke karmě pro Architekty, loučíš se a odlétáš ");
 
-	output.createButton("Odlétáš" + jump, generateRandomEvent);
-}
-
-
-architects_pyramid_of_sadness[0] = async function () {
-	await output.write("");
-
-	output.createButton("" + battle, architects_pyramid_of_sadness[1]);
-	output.createButton("" + jump, architects_pyramid_of_sadness[1]);
-	output.createButton("" + jump, generateRandomEvent);
 	output.createButton("Pokračovat" + jump, function () {
-			factions.addFuel(-1);
-			factions.addScrap(-1);
-			factions.addRelation(1, -20);
+			factions.addFuel(5);
+			factions.addScrap(3);
+			factions.addRelation(5, 30);
 			generateRandomEvent();
 		});
 }
 
-architects_pyramid_of_sadness[1] = async function () {
-	new Battle(10, 5, async function () {
-		await output.write("");
-		if (inventory.getScrap() > 2) output.createButton("", architects_pyramid_of_sadness[0]);
-		else output.createButton("", architects_pyramid_of_sadness[0]);
-	});
-}
 //============================ Šablona ============================
 /*
 */
