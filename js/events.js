@@ -180,7 +180,12 @@ let kazoni_odplata = [];
 events.push(kazoni_odplata);
 
 kazoni_odplata[0] = async function () {
-	if(!inventory.getItem('kazoni_voda_completed')) generateRandomEvent();
+	if(!inventory.getItem('kazoni_voda_completed')){
+		generateRandomEvent();
+		return;
+	};
+
+	
 	destination.setName("Planeta " + getRadnomCode());
 	destination.setFaction(1);
 	destination.setStatus(0);
