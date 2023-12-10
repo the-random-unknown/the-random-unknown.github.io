@@ -294,6 +294,7 @@ dark_syndicate_eriset[0] = async function () {
 		generateRandomEvent();
 		return;
 	};
+
 	
 	destination.setName("Planeta " + getRadnomCode());
 	destination.setFaction(1);
