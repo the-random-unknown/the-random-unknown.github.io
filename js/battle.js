@@ -135,7 +135,7 @@ class Battle {
 		const battle = this; // a uz zase
 		output.setOutputVisible();
 		await output.write("Vítezství!");
-		output.createButton("Pokrčovat", battle.callback_function);
+		output.createButton("Pokračovat", battle.callback_function);
 	}
 }
 
